@@ -2,11 +2,11 @@ const Movie = require('../models/movies')
 const uuid = require('uuid');
 const uuid4 = uuid.v4();
 
-
+/* 
 const getAllMovies = async (req,res) => {
     let products = await Movie.find({}, "-_id -__v")
     res.status(200).json(products);
-}
+} */
 
 const createMovie = async (req,res) => {
     const newMovie = req.body;
@@ -41,7 +41,69 @@ const createMovie = async (req,res) => {
     }
 }
 
+const editMovie = async (req, res) => {
+  
+    if (req.params.id) {
+      // con _id --> title no funciona
+      console.log(req.params.id);
+      const newData = req.body;
+        try {
+              const filter = {id: req.params.id}
+              console.log(filter);
+              const update = {
+                
+                fullTitle: newData.fullTitle,
+                year: newData.year,
+                image: newData.image,
+                runtimeStr: newData.runtimeStr,
+                plot: newData.plot,
+                directors: newData.directors,
+                actorList: newData.actorList,
+                genres: newData.genres,
+                imDbRating: newData.imDbRating,
+                opinions: newData.opinions,
+                
+            }
+              console.log(update);
+              const doc = await Movie.findOneAndUpdate(filter,update);
+              let response = await doc.save();
+              
+          res.status(200).json({
+              msj: "Película actualizada " + response.fullTitle,
+          }); 
+      } catch (err) {
+          res.status(400).json({
+              msj: err.message,
+          });
+      }
+      } else {
+          res.status(400).json({
+          msj: "Es necesario introducir el ID de la película para actualizarla",
+      });
+      }
+  }; 
+
+
+  const deleteMovie = async (req,res)=>{
+    Movie.findOneAndDelete({id: req.body.id }, function (err, docs) {
+      if (err){
+        res.status(400).json({
+            msj: err.message,
+        });
+      }
+      else{
+        res.status(200).json({
+            msj: "Película borrada : "+ docs,
+        });
+          
+      }
+  });
+  } 
+
+
 module.exports = {
     createMovie,
-    getAllMovies
+    editMovie,
+    deleteMovie
+    //getAllMovies
 }
