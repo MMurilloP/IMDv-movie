@@ -2,6 +2,8 @@ const express = require('express');
 const port = 3000;
 
 const app= express();
+const movieAdminRoutes = require('./routes/moviesAdminRoutes')
+
 
 app.use(express.json()); 
 
@@ -19,4 +21,9 @@ app.get("/logup", (req,res)=> {
     res.render("singUp")
 })
 
+app.use('/admin',movieAdminRoutes);
+
+
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
+
+

@@ -307,7 +307,7 @@ h2 {
   margin: 5px;
   padding: 10px;
   width: 80%;
-  background-color: ;
+ /*  background-color: ; */
 }
 
 .singIn-pass-input {
@@ -332,7 +332,7 @@ h2 {
   border-radius: 20px;
   border: 2px solid #d90429;
   background: #d90429;
-  float: left;
+  /* float: left; */
 }
 .singIn-enviar:hover {
   background: #fff;
