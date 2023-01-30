@@ -4,5 +4,6 @@ const movieAdminRouter = express.Router();
 
 
 movieAdminRouter.post('/create',movieAdminController.createMovie);
+movieAdminRouter.get('/',movieAdminController.getAllMovies);
 
 module.exports = movieAdminRouter;

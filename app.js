@@ -1,17 +1,19 @@
 const express = require('express');
-const port = 3000;
+require('./utils/db_mongo')
+const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 
 const app= express();
-const movieAdminRoutes = require('./routes/moviesAdminRoutes')
+const port = 3000;
 
-
-app.use(express.json()); 
 
 // Template engine
-app.use(express.static('public'));
 app.set("view engine", "pug");
 app.set("views", "./views");
 
+// Middlewares
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get("/login", (req,res)=> {
     res.render("singIn")
