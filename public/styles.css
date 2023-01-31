@@ -4,12 +4,17 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+html {
+  max-height: 100vh;
+}
+
 body {
   margin: 30px;
   background-image: url("https://images.pexels.com/photos/11961850/pexels-photo-11961850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-size: cover;
   background-repeat: repeat;
   background-attachment: scroll;
+  
 }
 
 h2 {
@@ -307,7 +312,7 @@ h2 {
   margin: 5px;
   padding: 10px;
   width: 80%;
-  background-color: ;
+  /* background-color: ; */
 }
 
 .singIn-pass-input {
@@ -332,7 +337,7 @@ h2 {
   border-radius: 20px;
   border: 2px solid #d90429;
   background: #d90429;
-  float: left;
+  /* float: left; */
 }
 .singIn-enviar:hover {
   background: #fff;
@@ -387,3 +392,120 @@ h1 {
 h4 {
   color: white;
 }
+
+.btn-container {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+
+.menu-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* .nav {
+  display: none;
+} */
+.nav {
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+/* Menú hamburguesa */
+ul{
+  display: none;
+}
+
+input:checked  ~ ul{
+  display:block;
+}
+
+input {
+  display: none;
+}
+
+label {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid rgb(113, 113, 113);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+}
+
+/* Estilo del boton cuando se pasa el mouse por encima*/
+label:hover{
+  background: rgb(255, 255, 255);
+}
+
+/* Estilo del boton cuando el menú está expandido*/
+input:checked ~ label {
+  background: rgb(255, 255, 255); 
+}
+
+ul{
+  margin-top:0;
+  padding: 0;
+  width: 200px;
+
+}
+
+
+li {
+  display: block;
+  background: rgb(97, 97, 97);
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+/*Estilo cuando el mouse pasa encima de cada link del menu*/
+li:hover {
+  filter: brightness(110%);
+}
+
+/* ----Menu hamburguesa*/
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+
+} 
+

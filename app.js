@@ -19,4 +19,12 @@ app.get("/logup", (req,res)=> {
     res.render("singUp")
 })
 
+app.get("/menu", (req,res)=> {
+    res.render("firstViewMenu")
+})
+
+app.get("/search", (req,res)=> {
+    res.render("searchFilm")
+})
+
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));

@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="styles.css")
+        title First View Menu
+html
+    head
+    body
+        h1 IMDv-movie
+        .search-container
+            input(type='text', placeholder='Buscar...')
+            button.search-icon
+        i.fa.search
+        nav
+            input#menu(type='checkbox')
+            label(for='menu')  ☰
+            ul
+                li Inicio
+                li Buscador
+                li Mis películas
+
+        header MovieApp 
+        container.btn-container
+            button.singIn-btn Mis peliculas
+            button.singIn-btn Buscar una pelicula
