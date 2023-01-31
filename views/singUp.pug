@@ -8,12 +8,13 @@ html(lang="en")
         title SIGN UP
     body 
         main
-            button.singIn-btn SING IN
-            br
-            
+            a(
+                href='http://localhost:3000/login', 
+                target='_blank'
+                )
+                button.singIn-btn Login
             br
             h1.title IMDV movies
-            h2 Resgistrate:
             section.form-container
                 form.singIn-form(action="")
                     input(type="text",name ="email", placeholder="Tú Email").singIn-name-input
