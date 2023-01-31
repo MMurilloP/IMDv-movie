@@ -3,8 +3,8 @@ const usuarios_queries = {
     SELECT *
     FROM usuarios;`,
     createUsuario:`
-    INSERT INTO usuarios(id_usuario,nombre,email,rol,pass) 
-    VALUES ($1,$2,$3,$4,$5);`,
+    INSERT INTO usuarios(nombre,email,rol,pass) 
+    VALUES ($1,$2,$3,$4);`,
 }
 
 module.exports = usuarios_queries;
