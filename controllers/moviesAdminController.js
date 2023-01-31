@@ -1,4 +1,4 @@
-const Movie = require('../models/movies')
+const Movie = require('../models/movies');
 const uuid = require('uuid');
 const uuid4 = uuid.v4();
 
