@@ -1,6 +1,8 @@
-function paintData(img, title, year, director, genre, runtime) {
+const editMovie = require('./data')
 
-    const cardsContainer = document.getElementById('movies_container')
+const paintData = (id, img, title, year, director, genre, runtime)=> {
+
+    const cardsContainer = document.querySelector('.movies_container')
     // Creo dinámicamente todos los nodos necesarios para pintar mis tarjetas de productos
     const card = document.createElement('div')
     card.setAttribute('class', 'movie_detail') 
@@ -12,6 +14,8 @@ function paintData(img, title, year, director, genre, runtime) {
     movieDirector.innerText = `${director}`
     const movieGenre = document.createElement('p')
     movieGenre.innerText = genre
+    const movieRuntime = document.createElement('p')
+    movieRuntime.innerText = runtime
     const movieImage = document.createElement('img')
     movieImage.setAttribute('src', img)
     movieImage.setAttribute('class', 'movie_img') 
@@ -22,6 +26,7 @@ function paintData(img, title, year, director, genre, runtime) {
     card.appendChild(movieImage)
     card.appendChild(movieYear)
     card.appendChild(movieDirector)
+    card.appendChild(movieRuntime)
 
     // añado un EventListener a la tarjeta para que me redirija a la vista detalle
     card.addEventListener('click', async () => {
@@ -29,9 +34,9 @@ function paintData(img, title, year, director, genre, runtime) {
         clearCards()
         // Hacer una petición al servidor para obtener el detalle de un producto determinado
         //...
-        const detail = await getMovieDetail(id)
+        const detail = await editMovie(id)
         // Pintar el detalle del producto clickeado
-        detail.forEach((movie)=> paintCard(movie, true))
+        detail.forEach((movie)=> paintData(movie, true))
     })
     
     // añado la tarjeta completa al contenedor de mi DOM
@@ -39,11 +44,12 @@ function paintData(img, title, year, director, genre, runtime) {
 }
 
 const clearCards = () =>{
-    const cardsContainer = document.getElementById('movies_container')
+    const cardsContainer = document.querySelector('.movies_container')
     cardsContainer.innerHTML = ''
 }
 
 module.exports = {
     paintData,
+    clearCards
     
 }
