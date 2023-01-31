@@ -11,15 +11,15 @@ const getUsuarios = (request, response) => {
     })
   }
 
-const createUsuario = async (req, res) => {
-    const email = req.body.email;
-    console.log(email)
-    const pass = req.body.password;
-    console.log(pass)
-    get(url,(response)=>{
-        re
-    })
-}
+// const createUsuario = async (req, res) => {
+//     const email = req.body.email;
+//     console.log(email)
+//     const pass = req.body.password;
+//     console.log(pass)
+//     get(url,(response)=>{
+//         re
+//     })
+// }
 
 module.exports = {
     getUsuarios,
