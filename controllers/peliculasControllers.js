@@ -1,16 +1,16 @@
 const peliculasModel = require('../models/peliculasModels')
-const { get } = require('../routes/usuariosRoutes')
-const pool = require('../utils/sqlDb')
 
 
-const getPeliculas = (request, response) => {
-    pool.query('SELECT * FROM peliculas' , (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(results.rows)
-    })
-  }
+  const getPeliculas = async (req, res) => {
+    let peliculas;
+    if (req.query) {
+        peliculas = await peliculasModel.getPeliculas(req.query);
+    }
+    else {
+        // peliculas = await peliculasModel.getAllEntries();
+    }
+    res.status(200).json(peliculas); // [] con las entries encontradas
+}
 
   module.exports ={
     getPeliculas,

@@ -1,5 +1,5 @@
 const peliculas_queries = {
-    getUsuarios: `
+    getPeliculas: `
     SELECT *
     FROM peliculas;`,
 }

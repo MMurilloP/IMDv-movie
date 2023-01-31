@@ -16,8 +16,8 @@ app.set("views", "./views");
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const peliculasRoutes = require ('./routes/peliculasRoutes');
 
-app.use('/getAllUsuarios', usuariosRoutes);
-app.use('/getAllPeliculas', peliculasRoutes);
+app.use('/usuarios', usuariosRoutes);
+app.use('/peliculas', peliculasRoutes);
 
 
 //SSR --> pug
