@@ -1,5 +1,5 @@
 const pool = require('../utils/sqlDb')
-const usuarios = require('../queries/users.queries');
+const usuarios = require('../queries/usersQueries');
 
 const getUsuarios = async () => {
     let client, result;
@@ -16,19 +16,6 @@ const getUsuarios = async () => {
     return result;
 }
 
-const getByEmail = async (usuario) => {
-    let client, result;
-    try {
-        client = await pool.connect();
-        const data = await client.query(usuarios.getByEmail, [usuario]);
-        result = data.rows;
-    } catch (err) {
-        throw err;
-    } finally {
-        client.release();
-    }
-    return result;
-}
 
 const createUsuario = async (usuario) => {
     const { id_usuario, nombre, email, rol, pass } = usuario;
@@ -48,6 +35,5 @@ const createUsuario = async (usuario) => {
 
 module.exports = {
     getUsuarios,
-    getByEmail,
     createUsuario
 }

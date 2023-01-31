@@ -14,15 +14,19 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 const usuariosRoutes = require('./routes/usuariosRoutes');
+const peliculasRoutes = require ('./routes/peliculasRoutes');
 
 app.use('/getAllUsuarios', usuariosRoutes);
+app.use('/getAllPeliculas', peliculasRoutes);
 
+
+//SSR --> pug
 app.get("/login", (req,res)=> {
     res.render("singIn")
 })
 
-// app.get("/logup", (req,res)=> {
-//     res.render("singUp")
-// })
+app.get("/logup", (req,res)=> {
+    res.render("singUp")
+})
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
