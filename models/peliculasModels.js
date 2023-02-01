@@ -1,4 +1,4 @@
-const pool = require('../utils/sqlDb')
+const pool = require('../utils/db')
 const peliculas = require('../queries/peliculasQueries');
 
 

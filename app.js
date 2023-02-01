@@ -22,11 +22,13 @@ app.use('/peliculas', peliculasRoutes);
 
 //SSR --> pug
 app.get("/login", (req,res)=> {
-    res.render("singIn")
+    res.render("login")
 })
 
-app.get("/logup", (req,res)=> {
-    res.render("singUp")
+app.get("/register", (req,res)=> {
+    res.render("register")
 })
+
+
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));

@@ -11,6 +11,31 @@ body {
   background-repeat: repeat;
   background-attachment: scroll;
 }
+h1 {
+  color: white;
+}
+
+h4 {
+  color: white;
+}
+
+a {
+  outline: none;
+  color: white;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+a:hover{
+  color: red
+}
+
+li{
+  color: white;
+}
+
+ul{
+  color: white;
+}
 
 h2 {
   color: white;
@@ -379,11 +404,3 @@ h2 {
   color: #4433ff;
 }
 
-h1 {
-  color: white;
-}
-
-
-h4 {
-  color: white;
-}

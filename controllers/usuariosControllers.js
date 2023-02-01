@@ -1,14 +1,6 @@
 const usuariosModel = require('../models/usuariosModels')
 
 
-// const getUsuarios = (request, response) => {
-//     pool.query('SELECT * FROM usuarios' , (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(200).json(results.rows)
-//     })
-//   }
 const geUsuarios = async (req, res) => {
   let usuario;
   if (req.query) {

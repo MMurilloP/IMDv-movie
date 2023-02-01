@@ -1,4 +1,4 @@
-const pool = require('../utils/sqlDb')
+const pool = require('../utils/db')
 const usuarios = require('../queries/usersQueries');
 
 const getUsuarios = async () => {

@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="styles.css")
+        title SIGN UP
+    body 
+        main
+            a(
+                href='/login'
+                )
+                button.singIn-btn Login
+            br
+            
+            
+            h1.title IMDV movies
+
+            section.form-container
+                form.singIn-form(action="/register" method ="POST")
+                    input(type="text",name ="nombre", placeholder="Tú Nombre de usuario" required).singIn-name-input
+                    br
+                    input(type="text",name ="email", placeholder="Tú Email" required).singIn-name-input
+                    br
+                    input(type="password" name="password", placeholder="Contraseña" required).singIn-pass-input
+                    br
+                    input(type="password" name="password2", placeholder="Confirma tú Contraseña" required).singIn-pass-input
+                    br
+                    input(type="submit", value="Registrar" required).singIn-enviar
+                    br
+            a(href='/login') Si ya estas registrado, haz Login aqui!
+            
