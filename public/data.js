@@ -1,18 +1,18 @@
- const getAllMovies = async() =>{
+const getAllMovies = async() =>{
     const response = await fetch('http://localhost:3000/admin/movies');
     const results = await response.json();
 
     return results
 }
 
- const editMovie = async ()=> {
+const editMovie = async ()=> {
     const response = await fetch(`http://localhost:3000/admin/editMovie/:${id}`);
     const results = await response.json();
 
     return results
 }
 
- const createMovie = async(movie) =>{
+const createMovie = async(movie) =>{
     try {
         const options = {
             method: 'POST',

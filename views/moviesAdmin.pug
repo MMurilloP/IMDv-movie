@@ -12,4 +12,14 @@ html(lang="en")
             h1.title Mis películas
             button Crear nueva
             section.movies_container 
-        script(type="text/javascript" src="/script.js")
+                each movie in movies
+                    button Editar
+                    button Eliminar
+                    img(src=movie.image, alt="", srcset="")
+                    h3 Title: #{movie.fullTitle}
+                    p Director: #{movie.director} 
+                    p Año de lanzamiento: #{movie.year} 
+                    p Plot: #{movie.plot} 
+                    p Duración: #{movie.runtimeStr} 
+                    
+

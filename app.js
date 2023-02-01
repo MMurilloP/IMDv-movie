@@ -1,6 +1,6 @@
 const express = require('express');
 const logger = require('morgan');
-require('./utils/db_mongo')
+require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 
 const app= express();
@@ -27,9 +27,12 @@ app.get("/logup", (req,res)=> {
 
 app.use('/admin',movieAdminRoutes);
 
-app.get("/admin/movies", (req,res)=> {
-    res.render("moviesAdmin")
-})
+
+/* app.get("/admin/movies", (req,res)=> {
+    res.render("moviesAdmin",{movies: movieAdminRoutes})
+    console.log(movieAdminRoutes);
+
+})  */
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));

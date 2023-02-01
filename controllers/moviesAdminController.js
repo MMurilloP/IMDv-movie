@@ -2,11 +2,15 @@ const Movie = require('../models/movies');
 const uuid = require('uuid');
 const uuid4 = uuid.v4();
 
-/* 
+
 const getAllMovies = async (req,res) => {
-    let products = await Movie.find({}, "-_id -__v")
-    res.status(200).json(products);
-} */
+    let movies = await Movie.find({}, "-_id -__v")
+    console.log(movies);
+    //res.status(200).json(movies);
+    res.render('moviesAdmin',{movies: movies})
+    //return movies
+    
+} 
 
 const createMovie = async (req,res) => {
     const newMovie = req.body;
@@ -104,6 +108,6 @@ const editMovie = async (req, res) => {
 module.exports = {
     createMovie,
     editMovie,
-    deleteMovie
-    //getAllMovies
+    deleteMovie,
+    getAllMovies
 }
