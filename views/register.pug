@@ -17,6 +17,7 @@ html(lang="en")
             
             h1.title IMDV movies
 
+
             section.form-container
                 form.singIn-form(action="/register" method ="POST")
                     input(type="text",name ="nombre", placeholder="Tú Nombre de usuario" required).singIn-name-input
@@ -29,5 +30,8 @@ html(lang="en")
                     br
                     input(type="submit", value="Registrar" required).singIn-enviar
                     br
+                    select(name="role")
+                        option(value="admin") Admin
+                        option(value="user") User
             a(href='/login') Si ya estas registrado, haz Login aqui!
             
