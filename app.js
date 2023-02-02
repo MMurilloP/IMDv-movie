@@ -27,6 +27,9 @@ app.use('/peliculas', peliculasRoutes);
 
 
 //SSR --> pug
+app.get("/", (req,res)=> {
+  res.render("inicio")
+})
 app.get("/login", (req,res)=> {
     res.render("login")
 })
@@ -34,7 +37,7 @@ app.get("/register", (req,res)=> {
     res.render("register")
 })
 app.get("/index", (req,res)=> {
-  res.render("index")
+  res.render("index" ,)
 })
 
 app.get("/logout", (req,res)=> {
