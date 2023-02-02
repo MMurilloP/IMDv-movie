@@ -1,0 +1,20 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link( rel="stylesheet", href="/styles.css")
+        title Mis películas
+    body 
+        main
+            h1.title Crear películas
+            
+            section.form-container 
+                form(action="")
+                    input(type="text" id="create_title" name="c_title" placeholder="Título:")
+                    input(type="text" id="create_dir" name="c_dir" placeholder="Director:")
+                    input(type="text"  id="create_plot" name="c_plot" placeholder="Sinopsis:")
+                    input(type="text" id="create_year" name="c_year" placeholder="Estreno (año):")
+                    input(type="text" id="create_run" name="c_run" placeholder="Duración:")
+                    input(type="text" id="create_img" name="c_img" placeholder="Imagen:")
+                    input(type="submit", value="Crear")

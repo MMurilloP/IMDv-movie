@@ -28,11 +28,11 @@ app.get("/logup", (req,res)=> {
 app.use('/admin',movieAdminRoutes);
 
 
-/* app.get("/admin/movies", (req,res)=> {
-    res.render("moviesAdmin",{movies: movieAdminRoutes})
-    console.log(movieAdminRoutes);
+app.get("/admin/createMovie", (req,res)=> {
+    res.render("createMovie")
+    
 
-})  */
+})  
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
