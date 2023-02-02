@@ -66,9 +66,7 @@ h2 {
   color: white;
 }
 
-a{
-  text-decoration: none;
-}
+
 span {
   display: flex;
   flex-direction: row;
@@ -526,6 +524,10 @@ span {
   flex-direction: column;
   max-width: 60%;
   color: white;
+  align-items: center;
 }
 
 
+.movies_container > img{
+  width: 50%;
+}

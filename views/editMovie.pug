@@ -8,18 +8,18 @@ html(lang="en")
     body 
         main
             
-            h1.title Editar películas
+            h1.title Editar películas 
             
             section.form_container 
-                form(action="")
-                    input(type="text" id="edit_title" name="e_title" placeholder="Título:" value )
-                    input(type="text" id="edit_dir" name="e_dir" placeholder="Director:")
-                    input(type="text"  id="edit_plot" name="e_plot" placeholder="Sinopsis:")
-                    input(type="text" id="edit_year" name="e_year" placeholder="Estreno (año):")
-                    input(type="text" id="edit_run" name="e_run" placeholder="Duración:")
-                    input(type="text" id="edit_img" name="e_img" placeholder="Imagen:")
-                    input(type="text" id="edit_actors" name="e_act" placeholder="Actores:")
-                    input(type="text" id="edit_genre" name="e_gen" placeholder="Género:")
-                    input(type="text" id="edit_rating" name="e_rat" placeholder="Rating:")
+                form.form(action="/admin/editMovie/" + movie.id method="POST")
+                    input(type="text" id="edit_title" name="e_title" placeholder="Título:" value=movie.fullTitle )
+                    input(type="text" id="edit_dir" name="e_dir" placeholder="Director:" value=movie.directors)
+                    input(type="text"  id="edit_plot" name="e_plot" placeholder="Sinopsis:" value=movie.plot)
+                    input(type="text" id="edit_year" name="e_year" placeholder="Estreno (año):" value=movie.year)
+                    input(type="text" id="edit_run" name="e_run" placeholder="Duración:" value=movie.runtimeStr)
+                    input(type="text" id="edit_img" name="e_img" placeholder="Imagen:" value=movie.image)
+                    input(type="text" id="edit_actors" name="e_act" placeholder="Actores:" value=movie.actorList)
+                    input(type="text" id="edit_genre" name="e_gen" placeholder="Género:" value=movie.genres)
+                    input(type="text" id="edit_rating" name="e_rat" placeholder="Rating:" value=movie.imDbRating)
                     input(type="submit", value="Editar")
 

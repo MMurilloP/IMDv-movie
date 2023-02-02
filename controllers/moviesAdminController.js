@@ -45,12 +45,23 @@ const createMovie = async (req,res) => {
     }
 }
 
+
+
+
+const getData = async (req, res) => {
+    const movie = await Movie.findOne({id: req.params.id});
+    res.render('editMovie',{movie: movie})
+    console.log(movie);
+
+}
+
+
 const editMovie = async (req, res) => {
-  
+    
     if (req.params.id) {
-      // con _id --> title no funciona
-      console.log(req.params.id);
-      const {e_title, e_year, e_img, e_run, e_plot, e_dir, e_act, e_gen, e_rat} = req.body;
+
+        const {e_title, e_year, e_img, e_run, e_plot, e_dir, e_act, e_gen, e_rat} = req.body;
+        console.log(req.params.id);
         try {
               const filter = {id: req.params.id}
               console.log(filter);
@@ -62,13 +73,13 @@ const editMovie = async (req, res) => {
                 runtimeStr: e_run,
                 plot: e_plot,
                 directors: e_dir,
-                actorList: e_act,
+                actorList: e_act || "",
                 genres: e_gen,
                 imDbRating: e_rat,
                 opinions: "",
                 
             }
-              console.log(update);
+              //console.log(update);
               const doc = await Movie.findOneAndUpdate(filter,update);
               let response = await doc.save();
               
@@ -109,5 +120,6 @@ module.exports = {
     createMovie,
     editMovie,
     deleteMovie,
-    getAllMovies
+    getAllMovies,
+    getData
 }
