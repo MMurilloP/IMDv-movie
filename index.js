@@ -38,7 +38,7 @@ app.get("/register", (req,res)=> {
 })
 
 app.get("/index", (req,res)=> {
-  res.render("index" ,)
+  res.render("index" , {userName: ""})
 })
 
 app.get("/logout", (req,res)=> {
@@ -48,7 +48,6 @@ app.get("/logout", (req,res)=> {
 app.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
   console.log(req.body);
-
 
   // Verificar si el email es válido
   if (!validator.isEmail(email)) {
@@ -83,16 +82,10 @@ app.post('/register', async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
   // Buscar al usuario en la base de datos
   const user = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
   if (user.rows.length === 0) {
-    return res.send(`
-      <script>
-        alert("Ese correo electrónico no está registrado.");
-        history.back();
-      </script>
-    `);
+    return res.render("login" , {msj: "Los credenciales introducidos no son validos"})
   }
 
   // Verificar la contraseña
