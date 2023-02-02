@@ -32,7 +32,7 @@ app.get("/admin/createMovie", (req,res)=> {
     res.render("createMovie")
 })  
 
-app.get("/admin/editMovie", (req,res)=> {
+app.get("/admin/editMovie/:id", (req,res)=> {
     res.render("editMovie")
 }) 
 

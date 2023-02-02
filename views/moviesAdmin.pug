@@ -14,7 +14,7 @@ html(lang="en")
             section.movies_container 
                 each movie in movies
                     span 
-                        a.btn(href="/admin/editMovie") Editar
+                        a.btn(href='/admin/editMovie/'+ movie.id ) Editar
                         a.btn(href="/admin/deleteMovie") Eliminar
                     img(src=movie.image, alt="", srcset="")
                     h3 Title: #{movie.fullTitle}
