@@ -8,17 +8,22 @@ html(lang="en")
         title SIGN IN
     body 
         main
-            button.singIn-btn SING UP
+            a(
+                href='/register' 
+                )
+                button.singIn-btn Resgistro
             br
-            
             br
             h1.title IMDV movies
+            h4 Login:
+            p #{msj}
             section.form-container
-            h2 Login:
-                form.singIn-form(action="")
-                    input(type="text",name ="email", placeholder="Tú Email").singIn-name-input
+                form.singIn-form(action="/login" method="POST")
+                    input(type="text",name ="email", placeholder="Tú Email" required).singIn-name-input
                     br
-                    input(type="password" name="password", placeholder="Contraseña").singIn-pass-input
+                    input(type="password" name="password", placeholder="Contraseña" required).singIn-pass-input
                     br
                     input(type="submit", value="Enviar").singIn-enviar
                     br
+            a(href='/register') Aún no estas registrado, Resgistrate aqui!
+            
