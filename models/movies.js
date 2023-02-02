@@ -39,14 +39,16 @@ const objectSchema ={
         type: String, 
         required: true,
     },
-    actorList: [{name:String}],
+    actorList: {
+        type: String,
+    },
     genres: {
         type: String, 
-        required: true,
+        
     },
     imDbRating: {
         type: String, 
-        required: true,
+        
     },
 
     opinions: {

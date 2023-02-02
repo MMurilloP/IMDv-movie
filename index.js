@@ -6,8 +6,9 @@ const jwt = require('jsonwebtoken');
 const validator = require('validator');
 const passport = require('passport');
 
+require('./utils/db_mongo');
+const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 
-const isAuthenticated = require('./utils/auth')
 
 const port = 3000;
 const app= express();
@@ -102,6 +103,21 @@ app.post("/login", async (req, res) => {
 });
 
 
+app.use('/admin',movieAdminRoutes);
+
+
+app.get("/admin/createMovie", (req,res)=> {
+    res.render("createMovie")
+})  
+
+app.get("/admin/editMovie/:id", (req,res)=> {
+    res.render("editMovie")
+}) 
+
+app.get("/admin/deleteMovie", (req,res)=> {
+    res.render("deleteMovie")
+}) 
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
+
