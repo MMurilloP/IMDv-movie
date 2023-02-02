@@ -3,7 +3,7 @@ const usuarios_queries = {
     SELECT *
     FROM usuarios;`,
     createUsuario:`
-    INSERT INTO usuarios(nombre,email,rol,pass) 
+    INSERT INTO usuarios(username,email,role,password) 
     VALUES ($1,$2,$3,$4);`,
 }
 

@@ -16,8 +16,7 @@ html(lang="en")
             
             
             h1.title IMDV movies
-
-
+            h4 Registro:
             section.form-container
                 form.singIn-form(action="/register" method ="POST")
                     input(type="text",name ="nombre", placeholder="Tú Nombre de usuario" required).singIn-name-input
@@ -26,10 +25,10 @@ html(lang="en")
                     br
                     input(type="password" name="password", placeholder="Contraseña" required).singIn-pass-input
                     br
-                    input(type="submit", value="Registrar" required).singIn-enviar
-                    br
-                    select(name="role")
+                    select(name="role").singIn-pass-input
                         option(value="admin") Admin
                         option(value="user") User
+                    input(type="submit", value="Registrar" required).singIn-enviar
+                    br
             a(href='/login') Si ya estas registrado, haz Login aqui!
             

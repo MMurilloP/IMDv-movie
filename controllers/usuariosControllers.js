@@ -13,7 +13,7 @@ const geUsuarios = async (req, res) => {
 }
 
   const createUsuario = async (req, res) => {
-    const newEntry = req.body; // {title,content,email,category}
+    const newEntry = req.body; // 
     const response = await usuariosModel.createUsuario(newEntry);
     res.status(201).json({
         "Usuario_creado": response,

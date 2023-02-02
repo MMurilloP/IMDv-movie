@@ -18,11 +18,11 @@ const getUsuarios = async () => {
 
 
 const createUsuario = async (usuario) => {
-    const { nombre, email, rol, pass } = usuario;
+    const { username, email, role, password } = usuario;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(usuarios.createUsuario, [ nombre, email, rol, pass ]);
+        const data = await client.query(usuarios.createUsuario, [ username, email, role, password ]);
         result = data.rowCount;
     } catch (err) {
         throw err;
