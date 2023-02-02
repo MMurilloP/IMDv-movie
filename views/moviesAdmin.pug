@@ -10,11 +10,12 @@ html(lang="en")
         main
             
             h1.title Mis películas
-            button Crear nueva
+            a.btn(href="/admin/createMovie") Crear nueva
             section.movies_container 
                 each movie in movies
-                    button Editar
-                    button Eliminar
+                    span 
+                        a.btn(href="/admin/editMovie") Editar
+                        a.btn(href="/admin/deleteMovie") Eliminar
                     img(src=movie.image, alt="", srcset="")
                     h3 Title: #{movie.fullTitle}
                     p Director: #{movie.director} 
@@ -22,4 +23,5 @@ html(lang="en")
                     p Plot: #{movie.plot} 
                     p Duración: #{movie.runtimeStr} 
                     
+        script(src="/script.js") 
 

@@ -30,9 +30,15 @@ app.use('/admin',movieAdminRoutes);
 
 app.get("/admin/createMovie", (req,res)=> {
     res.render("createMovie")
-    
-
 })  
+
+app.get("/admin/editMovie", (req,res)=> {
+    res.render("editMovie")
+}) 
+
+app.get("/admin/deleteMovie", (req,res)=> {
+    res.render("deleteMovie")
+}) 
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));

@@ -16,6 +16,14 @@ h2 {
   color: white;
 }
 
+a{
+  text-decoration: none;
+}
+span {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 .title {
   -webkit-animation: title 4s linear both;
   animation: title 4s linear both;
@@ -276,7 +284,7 @@ h2 {
   }
 }
 
-.singIn-btn  {
+.singIn-btn, .btn{
     min-width: 130px;
     height: 40px;
     color: #fff;
