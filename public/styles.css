@@ -20,7 +20,10 @@ body {
   background-position: center;
   font-family: "roboto", sans-serif;
 }
-
+/* body para admin */
+.admin{
+  display: block;
+}
 
 
 h1 {
