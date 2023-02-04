@@ -102,7 +102,8 @@ const editMovie = async (req, res) => {
 
 
 const removeMovie = async (req,res)=>{
-    Movie.findOneAndDelete({id: req.body.id }, function (err, docs) {
+    console.log(req.body);
+    Movie.findOneAndDelete({id: req.body.data }, function (err, docs) {
       if (err){
         res.status(400).json({
             msj: err.message,

@@ -15,13 +15,13 @@ html(lang="en")
             section.movies_container 
                 div.popup 
                     button#close 
-                    p ¿Estas seguro que quieres eliminar esta película?
+                    h3 ¿Estas seguro que quieres eliminar esta película?
                     a#confirm_del(href="") Eliminar
                 each movie in movies
                     span 
                         a(href='/admin/editMovie/'+ movie.id ) 
                             button.btn Editar
-                        button.btn.btn_delete(type="submit") Eliminar
+                        button.btn.btn_delete(type="submit" name=movie.id) Eliminar
                     img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
                     h3 Título: #{movie.fullTitle}
                     p Director: #{movie.director} 

@@ -574,7 +574,7 @@ input{
 .popup h2{
   margin-top: -20px;
 }
-.popup p{
+.popup  h3{
     font-size: 14px;
     text-align: justify;
     margin: 20px 0;
