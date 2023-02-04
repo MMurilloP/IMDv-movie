@@ -67,6 +67,7 @@ span {
   display: flex;
   flex-direction: row;
   gap: 5px;
+  justify-content: center;
 }
 .title {
   -webkit-animation: title 4s linear both;
@@ -374,6 +375,11 @@ span {
     border: 2px solid #d90429;
     background: #d90429;
   }
+
+  .btn{
+    min-width: auto;
+  }
+
   .singIn-btn:hover {
     background: #fff;
     color: #d90429;
@@ -601,7 +607,8 @@ input{
   flex-direction: column;
   color: white;
   align-items: start;
-  gap: 10px;
+  gap: 20px;
+  padding: 20px;
 }
 
 .movies_container p{
@@ -614,7 +621,17 @@ input{
   width: 60%;
   align-self: center;
 }
+.movie_cont{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .btn_delete{
   margin-top: 2px;
+}
+
+.close::after{
+  display: inline-block;
+  content: "\00d7"; /* This will render the 'X' */
 }

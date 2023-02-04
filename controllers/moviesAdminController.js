@@ -30,14 +30,14 @@ const createMovie = async (req,res) => {
                 opinions: "",
             
         });
-
-        res.render('createMovie')
-        /* let answer = await response.save();
+        let answer = await response.save();
+        res.status(201).render('createMovie')
+        /*  
         console.log("Respuesta de la API", answer);
         res.status(201).send({
             msj: `Película ${answer.fullTitle} guardada en el sistema con ID: ${answer.id}`,
             movie: answer, 
-        }); */
+        });  */
     } catch (error) {
         console.log("Este es el error que devuelve la api", error.message);
         res.status(400).json({

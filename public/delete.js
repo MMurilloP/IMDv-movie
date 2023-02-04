@@ -18,7 +18,11 @@ btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     const response = await deleteMovie(data);
 }))
 
-
+const btn_pop_close = document.querySelectorAll('.close')
+btn_pop_close.forEach(btn=> btn.addEventListener("click", async ()=> {
+    const popup = document.querySelectorAll(".popup")
+    popup.forEach(pop => pop.style.display = "none")
+}))
 
 
 const deleteMovie = async (movie)=> {
