@@ -9,13 +9,15 @@ btn_del.forEach(btn => btn.addEventListener("click", ()=>{
     
 })
 )
-const btn_pop_del =document.querySelectorAll('.btn_delete')
+const btn_pop_del =document.querySelectorAll('.confirm_del')
 btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     e.preventDefault();
     console.log(e);
     const data = {data: e.target.name}
     console.log(e.target.name);
     const response = await deleteMovie(data);
+
+    //e.target.submit();
 }))
 
 const btn_pop_close = document.querySelectorAll('.close')

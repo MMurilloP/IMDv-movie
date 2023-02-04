@@ -102,17 +102,19 @@ const editMovie = async (req, res) => {
 
 
 const removeMovie = async (req,res)=>{
-    console.log(req.body);
-    Movie.findOneAndDelete({id: req.body.data }, function (err, docs) {
+    console.log(req.body.data);
+    const doc= Movie.findOneAndDelete({id: req.body.data }, function (err, docs) {
       if (err){
         res.status(400).json({
             msj: err.message,
         });
       }
       else{
+        //let response =  doc.save();
+        
         res.status(200).json({
             msj: "Película borrada : "+ docs,
-        });
+        }); 
           
       }
   });

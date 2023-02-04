@@ -117,6 +117,8 @@ app.post("/login", async (req, res) => {
 app.use('/admin',movieAdminRoutes);
 
 
+
+
 app.get("/admin/createMovie", (req,res)=> {
     res.render("createMovie")
 })  
