@@ -11,13 +11,23 @@ html(lang="en")
             
             section.form-container 
                 form.form(action="/admin/createMovie" method="POST")
+                    label(for="e_title") Título:
                     input(type="text" id="create_title" name="c_title" placeholder="Título:" required)
+                    label(for="e_dir") Director:
                     input(type="text" id="create_dir" name="c_dir" placeholder="Director:" required)
+                    label(for="e_plot") Sinopsis:
                     input(type="text"  id="create_plot" name="c_plot" placeholder="Sinopsis:" required)
+                    label(for="e_year") Año de estreno:
                     input(type="text" id="create_year" name="c_year" placeholder="Estreno (año):" required)
+                    label(for="e_run") Duración:
                     input(type="text" id="create_run" name="c_run" placeholder="Duración:" required)
+                    label(for="e_img") Poster:
                     input(type="text" id="create_img" name="c_img" placeholder="Imagen:")
+                    label(for="e_act") Actores:
                     input(type="text" id="create_actors" name="c_act" placeholder="Actores:")
+                    label(for="e_gen") Género:
                     input(type="text" id="create_genre" name="c_gen" placeholder="Género:")
+                    label(for="e_rat") Puntuación
                     input(type="text" id="create_rating" name="c_rat" placeholder="Rating:")
                     input(type="submit", value="Crear" )
+        script(src="/data_edit.js" type='module')

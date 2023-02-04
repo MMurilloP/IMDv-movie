@@ -1,8 +1,5 @@
 
-//import editMovie from './data.js'
-
 const editMovies = async (movie)=> {
-
     const options = {
         method: 'PUT',
         headers:{
@@ -27,5 +24,7 @@ document.getElementById("edit_btn").addEventListener("click", async (e)=>{
     }
     console.log("data recogida del formulario", data)
     const postResponse = await editMovies(data);
-    
 })
+
+
+

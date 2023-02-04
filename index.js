@@ -1,10 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const helmet = require("helmet");
 const pool = require('./utils/db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
 const passport = require('passport');
+var cors = require('cors')
 
 require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
@@ -16,6 +18,15 @@ const app= express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"]
+    }
+  })
+)
+app.use(cors())
 
 
 // Template engine

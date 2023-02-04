@@ -30,12 +30,14 @@ const createMovie = async (req,res) => {
                 opinions: "",
             
         });
-        let answer = await response.save();
+
+        res.render('createMovie')
+        /* let answer = await response.save();
         console.log("Respuesta de la API", answer);
-        res.status(201).json({
+        res.status(201).send({
             msj: `Película ${answer.fullTitle} guardada en el sistema con ID: ${answer.id}`,
-            movie: answer,
-        });
+            movie: answer, 
+        }); */
     } catch (error) {
         console.log("Este es el error que devuelve la api", error.message);
         res.status(400).json({
@@ -99,7 +101,7 @@ const editMovie = async (req, res) => {
     }; 
 
 
-const deleteMovie = async (req,res)=>{
+const removeMovie = async (req,res)=>{
     Movie.findOneAndDelete({id: req.body.id }, function (err, docs) {
       if (err){
         res.status(400).json({
@@ -119,7 +121,7 @@ const deleteMovie = async (req,res)=>{
 module.exports = {
     createMovie,
     editMovie,
-    deleteMovie,
+    removeMovie,
     getAllMovies,
     getData
 }
