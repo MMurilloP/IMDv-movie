@@ -17,6 +17,12 @@ btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     console.log(e.target.name);
     const response = await deleteMovie(data);
 
+    if (response) {
+        const popup = document.querySelectorAll(".popup")
+        popup.forEach(pop => pop.style.display = "none")
+        window.open('http://localhost:3000/admin', "_self")
+    }
+
     //e.target.submit();
 }))
 

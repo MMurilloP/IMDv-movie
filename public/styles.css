@@ -45,10 +45,7 @@ a {
   text-decoration: none;
   padding: 2px 1px 0;
 }
-a:hover {
-  background-color: white;
-  color: #d90429;
-}
+
 
 li {
   color: white;
@@ -379,6 +376,13 @@ span {
   .btn{
     min-width: auto;
   }
+
+  .btn:hover{
+    background-color: white;
+    color: #d90429;
+  }
+
+  
 
   .singIn-btn:hover {
     background: #fff;

@@ -25,9 +25,9 @@ html(lang="en")
                             button.btn.btn_delete Eliminar
                         img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
                         h3 Título: #{movie.fullTitle}
-                        p Director: #{movie.director} 
+                        p Director: #{movie.directors} 
                         p Año de lanzamiento: #{movie.year} 
-                        p Plot: 
+                        p Sinopsis: 
                         p #{movie.plot} 
                         p Duración: #{movie.runtimeStr} 
         script(src="/delete.js" type='module') 
