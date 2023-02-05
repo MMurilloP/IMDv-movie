@@ -89,12 +89,12 @@ app.post("/login", async (req, res) => {
   // Buscar al usuario en la base de datos
   const user = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
   if (user.rows.length === 0) {
-    return res.render("login" , {msj: "Los credenciales introducidos no son validos"})
+    return res.render("login" , {msj: "El email introducido no es correcto"})
   }
   // Verificar la contraseña
   const isPasswordCorrect = await bcrypt.compare(password, user.rows[0].password);
   if (!isPasswordCorrect) {
-    return res.render("login" , {msj: "Los credenciales introducidos no son validos"}) 
+    return res.render("login" , {msj: "La contraseña es incorrecta"}) 
   }
   // Iniciar sesión (por ejemplo, guardar en una cookie el ID del usuario)
   res.cookie("userId", user.rows[0].id);
@@ -103,7 +103,7 @@ app.post("/login", async (req, res) => {
 
 
 app.get('/opiniones', async (req, res) => {
-  const pelicula = "avatar 2"
+  const pelicula = "matrix"
   async function waitFor3Seconds() {
     await new Promise(resolve => setTimeout(resolve, 3000));
   }
@@ -148,10 +148,8 @@ app.get('/opiniones', async (req, res) => {
 
   //cierro el navegador
   await browser.close()
-
-//   res.send(user)
-
-res.render('opiniones', { user: user })
+  
+res.render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
 
 })
 

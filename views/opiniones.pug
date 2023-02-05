@@ -4,8 +4,7 @@ html
     title Opiniones de usuarios SENSACINE
     link(rel="stylesheet", href="stylesOpiniones.css")
   body
-    h1#title_opiniones Opiniones de usuarios 
-      | SENSACINE
+    h1#title_opiniones Opiniones de: #{pelicula}
     ul.container
       each opinion in user
         li#li_opiniones
