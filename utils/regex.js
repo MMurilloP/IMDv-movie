@@ -1,24 +1,13 @@
-//Que el email tenga  @ y un .
-const validateEmail = (email) => {
-    const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regexEmail.test(email.toLowerCase());
-};
-//que el password tenga minimo 8 caracteres, minusculas, mayusculas, caracter especial y numero
-const validatePassword = (password) => {
-    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-])(?=.{8,})/;
-    return regexPassword.test(password);
-};
-// //solo letras y espacios (se usa en nombre y en apellido)
-// const validateName = (name) => {
-//     const regexName = /^[a-zA-Z\s]*$/;
-//     return regexName.test(name)
-// }
+//REGEX:
+//PARA EL EMAIL: Que tenga un @ y un .
+const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const regex = {
-    validateEmail,
-    validatePassword,
-    // validateName
-};
+// PARA EL PASS: que tenga minimo 8 caracteres, minusculas, mayusculas, un caracter especial y  un numero ejm: Manolit@8
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-module.exports = regex;
 
+module.exports = {
+    emailRegex,
+    passwordRegex
+  };
+  

@@ -28,3 +28,40 @@
     span {
       font-size: 14px;
     }
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    input[type='text'] {
+      width: 60%;
+      height: 40px;
+      padding: 10px;
+      font-size: 20px;
+      margin-right: 10px;
+      border-radius: 20px;
+    }
+
+  
+.singIn-btn {
+  min-width: 130px;
+  margin: 20px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #d90429;
+  background: #d90429;
+}
+.singIn-btn:hover {
+  background: #fff;
+  color: #d90429;
+}
