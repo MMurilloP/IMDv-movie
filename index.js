@@ -103,7 +103,7 @@ app.post("/login", async (req, res) => {
 
 
 app.get('/opiniones', async (req, res) => {
-  const pelicula = "matrix"
+  const pelicula = "avatar 2"
   async function waitFor3Seconds() {
     await new Promise(resolve => setTimeout(resolve, 3000));
   }
@@ -148,7 +148,9 @@ app.get('/opiniones', async (req, res) => {
 
   //cierro el navegador
   await browser.close()
-  
+
+//   res.send(user)
+
 res.render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
 
 })
