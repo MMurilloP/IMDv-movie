@@ -1,15 +1,15 @@
 
-const btn_del = document.querySelectorAll(".btn_delete")
+const btn_del = document.querySelectorAll(".btn_delete");
 
 btn_del.forEach(btn => btn.addEventListener("click", ()=>{
 
-    const popup = document.querySelectorAll(".popup")
-    popup.forEach(pop => pop.style.display = "flex")
+    const popup = document.querySelectorAll(".popup");
+    popup.forEach(pop => pop.style.display = "flex");
     
     
 })
-)
-const btn_pop_del =document.querySelectorAll('.confirm_del')
+);
+const btn_pop_del =document.querySelectorAll('.confirm_del');
 btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     e.preventDefault();
     console.log(e);
@@ -18,19 +18,19 @@ btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     const response = await deleteMovie(data);
 
     if (response) {
-        const popup = document.querySelectorAll(".popup")
-        popup.forEach(pop => pop.style.display = "none")
-        window.open('http://localhost:3000/admin', "_self")
+        const popup = document.querySelectorAll(".popup");
+        popup.forEach(pop => pop.style.display = "none");
+        window.open('http://localhost:3000/admin', "_self");
     }
 
     //e.target.submit();
-}))
+}));
 
-const btn_pop_close = document.querySelectorAll('.close')
+const btn_pop_close = document.querySelectorAll('.close');
 btn_pop_close.forEach(btn=> btn.addEventListener("click", async ()=> {
-    const popup = document.querySelectorAll(".popup")
-    popup.forEach(pop => pop.style.display = "none")
-}))
+    const popup = document.querySelectorAll(".popup");
+    popup.forEach(pop => pop.style.display = "none");
+}));
 
 
 const deleteMovie = async (movie)=> {

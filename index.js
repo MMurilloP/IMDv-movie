@@ -6,14 +6,17 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
 const passport = require('passport');
+const cookieParser = require('cookie-parser')
 var cors = require('cors')
+require('dotenv').config()
 
 require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
+const authorization = require('./middlewares/auth')
 
 
 const port = 3000;
-const app= express();
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,8 +31,9 @@ app.use(
     crossOriginEmbedderPolicy: false,
   })
 )
-app.use(cors());
+app.use('*', cors());
 
+app.use(cookieParser());
 
 // Template engine
 app.use(express.static('public'));
@@ -54,13 +58,19 @@ app.get("/register", (req,res)=> {
     res.render("register")
 })
 
-app.get("/index", (req,res)=> {
+app.get("/index", authorization.authorization_user, (req,res)=> {
+  
+ /*  const role = req.user.role;
+  if (role !== 'user') {
+    res.render("login" , {nameUser: ""})
+} */
+
   res.render("index" , {nameUser: ""})
 })
 
-app.get("/logout", (req,res)=> {
+/* app.get("/logout", (req,res)=> {
   res.render("logout")
-})
+}) */
 
 app.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
@@ -110,28 +120,54 @@ app.post("/login", async (req, res) => {
     return res.render("login" , {msj: "Los credenciales introducidos no son validos"}) 
   }
 
+  const userForToken = {
+    userLog : user,
+    //id?
+  }
+  const token = jwt.sign(userForToken, process.env.CLAVE);
+
+  res.cookie("access_token", token, {
+    httpOnly: true,
+    secure: "production",
+  })
+  .status(200)
+  .redirect('index');
+
+
   // Iniciar sesión (por ejemplo, guardar en una cookie el ID del usuario)
-  res.cookie("userId", user.rows[0].id);
-  res.redirect('index');
+  /* res.cookie("userId", user.rows[0].id); */
+  //json({ message: "Logged in successfully 😊 👌" });
+
+
+  return isPasswordCorrect
 });
 
 
-app.use('/admin',movieAdminRoutes);
+
+
+app.get("/logout", (req, res) => {
+  return res
+    .clearCookie("access_token")
+    .status(200)
+    .redirect('login');
+});
 
 
 
+app.use('/admin',authorization.authorization_admin,movieAdminRoutes);
 
-app.get("/admin/createMovie", (req,res)=> {
+
+app.get("/admin/createMovie",authorization.authorization_admin, (req,res)=> {
     res.render("createMovie")
 })  
 
-app.get("/admin/editMovie/:id", (req,res)=> {
+app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
     res.render("editMovie")
 }) 
 
-app.get("/admin/deleteMovie", (req,res)=> {
+/* app.get("/admin/deleteMovie",authorization.authorization_admin, (req,res)=> {
     res.render("deleteMovie")
-}) 
+})  */
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
