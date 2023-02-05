@@ -11,6 +11,10 @@ html
                 button.singIn-btn Resgistro
             br
             br
+            if userLogged
+                p Se ha registrado: #{userLogged}
+            else
+                p 
             h1.title IMDV movies            
             h4 Login:
             p #{msj}

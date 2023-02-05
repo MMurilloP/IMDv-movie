@@ -2,9 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const pool = require('./utils/db');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const validator = require('validator');
-const passport = require('passport');
 const puppeteer = require('puppeteer')
 
 
@@ -26,27 +24,22 @@ const usuariosRoutes = require('./routes/usuariosRoutes');
 const peliculasRoutes = require ('./routes/peliculasRoutes');
 
 
-app.use('/usuarios', usuariosRoutes);
-app.use('/peliculas', peliculasRoutes);
+// vistas de ADMIN: 
+
+//VER JSON DE USUARIOS Y DE PELICULAS EN LA BBDD ELEPHANT:
+
+//http://localhost:3000/admin/usuarios
+app.use('/admin/usuarios', usuariosRoutes);
+
+//http://localhost:3000/admin/peliculas
+app.use('/admin/peliculas', peliculasRoutes);
 
 
-//SSR --> pug
-app.get("/", (req,res)=> {
-  res.render("inicio")
-})
-app.get("/login", (req,res)=> {
-    res.render("login")
-})
+// vista para el USER:
+
+// Registrarse:
 app.get("/register", (req,res)=> {
-    res.render("register")
-})
-
-app.get("/index", (req,res)=> {
-  res.render("index" , {nameUser: ""})
-})
-
-app.get("/logout", (req,res)=> {
-  res.render("logout")
+  res.render("register")
 })
 
 app.post('/register', async (req, res) => {
@@ -58,7 +51,6 @@ app.post('/register', async (req, res) => {
   if (!validator.isEmail(email)) {
     return res.render("register" , {msj: "El email introducido no es valida."});
   }
-
   // Verificar si la contraseña cumple con los requisitos
   if (!validator.isLength(password, { min: 8 })) {
     return res.render("register" , {msj: "La constraseña introducida no es valida. Minimo 8 caracteres"})   }
@@ -68,7 +60,6 @@ app.post('/register', async (req, res) => {
   if (existingUser.rows.length > 0) {
     return res.render("register" , {msj: "El correo electrónico ya esta registrado."})
   }
-
   // Hashear la contraseña
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -78,11 +69,16 @@ app.post('/register', async (req, res) => {
     if (err) {
       res.status(500).send(err.stack);
     } else {
-      res.render('login',{nameUser: `${nombreUsuarioLogeado}`})
+      res.render('login', {userLogged: nombreUsuarioLogeado})
     }
   });
 });
 
+
+// Logearse:
+app.get("/login", (req,res)=> {
+  res.render("login")
+})
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -102,6 +98,25 @@ app.post("/login", async (req, res) => {
 });
 
 
+//vista bienvenida: /
+app.get("/", (req,res)=> {
+  res.render("inicio")
+})
+
+
+//vista dashboard:
+app.get("/index", (req,res)=> {
+  res.render("index" , {nameUser: ""})
+})
+
+
+// vista de logout
+app.get("/logout", (req,res)=> {
+  res.render("logout")
+})
+
+
+// vista de opiniones de peliculas de sensacine
 app.get('/opiniones', async (req, res) => {
   const pelicula = "avatar 2"
   async function waitFor3Seconds() {
@@ -142,19 +157,16 @@ app.get('/opiniones', async (req, res) => {
         userOpinion: userOpinions[i].innerText
       })
     }
-
     return tmp
   })
 
   //cierro el navegador
   await browser.close()
 
-//   res.send(user)
-
 res.render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
 
 })
 
 
-
+//listener
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
