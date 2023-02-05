@@ -36,7 +36,7 @@ const createMovie = async (req,res) => {
     } catch (error) {
         console.log("Este es el error que devuelve la api", error.message);
         res.status(400).json({
-        msj: error.message,
+        msj: error.messagtypescript.selectTypeScriptVersione,
     });
     }
 }

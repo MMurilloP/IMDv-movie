@@ -4,15 +4,39 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="styles.css")
+        link(rel="stylesheet", href="/styles.css")
         title Search film
-html
-    head
     body
-        nav
-            input#menu(type='checkbox')
-            label(for='menu')  ☰
-            ul
-                li Inicio
-                li Buscador
-                li Mis películas
+        main 
+            form#form(action="/user/search" method="POST")
+            input.input(type='text' name="searching"  placeholder='Search...')
+            input.singIn-btn#buscar(type="submit", value="Search")
+            nav
+                input#menu(type='checkbox')
+                label(for='menu')  ☰
+                ul
+                    li Inicio
+                    li Buscador
+                    li Mis películas
+                    li Salir
+                section.containerFilm
+                    h7  HOla #{movie}
+                section.movies_container 
+                    each movie in movies
+                            img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
+                            h3 Título: #{movie.fullTitle}
+                            p Director: #{movie.directors} 
+                            p Año de lanzamiento: #{movie.year} 
+                            p Sinopsis: 
+                            p #{movie.plot} 
+                            p Duración: #{movie.runtimeStr}
+                    //- h1  Adios
+                    //- each object in objects
+                    //-     h3 #{object.fullTitle}
+                    //-     img(src=object.image, alt="", srcset="")
+                    //-     p Año:#{object.year}
+                    //-     p Director :#{object.genres}
+                    //-     p Género: #{object.genres}
+                    //-     p Duración: #{object.runtimeStr}
+                    //-     button ✪
+        //- script(src='/script.js' type='module')

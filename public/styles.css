@@ -445,9 +445,6 @@ input:checked  ~ ul{
   display:block;
 }
 
-input {
-  display: none;
-}
 
 label {
   box-sizing: border-box;
@@ -460,6 +457,10 @@ label {
   font-weight: bold;
   text-align: center;
   user-select: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
 }
 
 /* Estilo del boton cuando se pasa el mouse por encima*/
@@ -476,17 +477,20 @@ ul{
   margin-top:0;
   padding: 0;
   width: 200px;
-
+  position: fixed;
+  top: 50px;
+  right: 20px;
 }
-
 
 li {
   display: block;
-  background: rgb(97, 97, 97);
+  background: rgb(214, 13, 13);
+  color: #fff;
   margin: 0;
   padding: 10px;
   list-style: none;
   border-bottom: 1px solid rgb(255, 255, 255);
+  
 }
 
 /*Estilo cuando el mouse pasa encima de cada link del menu*/
@@ -496,7 +500,7 @@ li:hover {
 
 /* ----Menu hamburguesa*/
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .nav {
     display: flex;
     flex-direction: column;
@@ -507,7 +511,17 @@ li:hover {
     padding: 20px;
     border-radius: 5px;
   }
+}  */
 
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0 10px;
+  box-shadow: 0 2px 4px rgba(126, 126, 126, 0.1);
+}
 
-} 
-
+#menu {
+  display: none;
+}

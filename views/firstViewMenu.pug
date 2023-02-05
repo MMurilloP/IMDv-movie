@@ -13,7 +13,7 @@ html
         .search-container
             input(type='text', placeholder='Buscar...')
             button.search-icon
-        i.fa.search
+            i.fa.search
         nav
             input#menu(type='checkbox')
             label(for='menu')  ☰
@@ -22,7 +22,24 @@ html
                 li Buscador
                 li Mis películas
 
+            br
+            br
+            h1.title IMDV movies
+
         header MovieApp 
         container.btn-container
             button.singIn-btn Mis peliculas
             button.singIn-btn Buscar una pelicula
+            a(
+                href='/' 
+                )
+                button.singIn-btn Bienvenido #{nameUser}
+            a(
+                href='/' 
+                )
+                button.singIn-btn Mis Peliculas Favoritas
+            a(
+                href='/logout' 
+                )
+                button.singIn-btn Logout
+        script(src='/public/script.js')
