@@ -122,16 +122,29 @@ app.post("/login", async (req, res) => {
 
   const userForToken = {
     userLog : user,
-    //id?
+    
   }
+
+
   const token = jwt.sign(userForToken, process.env.CLAVE);
 
-  res.cookie("access_token", token, {
-    httpOnly: true,
-    secure: "production",
-  })
-  .status(200)
-  .redirect('index');
+  if (userForToken.userLog.rows[0].role === 'user') {
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      secure: "production",
+    })
+    .status(200)
+    .redirect('index');
+  }else if (userForToken.userLog.rows[0].role === 'admin') {
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      secure: "production",
+    })
+    .status(200)
+    .redirect('admin');
+  }
+
+  
 
 
   // Iniciar sesión (por ejemplo, guardar en una cookie el ID del usuario)
