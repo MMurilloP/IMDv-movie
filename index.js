@@ -124,7 +124,8 @@ app.post("/login", async (req, res) => {
     userLog : user,
     
   }
-
+ //si pasais la ruta a routes esto se tiene que quedar aqui:
+ //app.post("/login", async (req, res) => {
 
   const token = jwt.sign(userForToken, process.env.CLAVE);
 
@@ -144,7 +145,6 @@ app.post("/login", async (req, res) => {
     .redirect('admin');
   }
 
-  
 
 
   // Iniciar sesión (por ejemplo, guardar en una cookie el ID del usuario)
@@ -167,7 +167,7 @@ app.get("/logout", (req, res) => {
 
 
 
-app.use('/admin',authorization.authorization_admin,movieAdminRoutes);
+app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
 
 
 app.get("/admin/createMovie",authorization.authorization_admin, (req,res)=> {
@@ -178,9 +178,7 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
     res.render("editMovie")
 }) 
 
-/* app.get("/admin/deleteMovie",authorization.authorization_admin, (req,res)=> {
-    res.render("deleteMovie")
-})  */
+
 
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
