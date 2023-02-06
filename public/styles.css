@@ -473,10 +473,10 @@ span {
   border: 2px solid #d90429;
   background: #d90429;
 }
+
 .singIn-enviar:hover {
   background: #fff;
-
-  color: #d90429
+  color: #d90429;
 }
 
 .singIn-google {
@@ -526,6 +526,7 @@ span {
   flex-direction: column;
   max-width: 60%;
   color: white;
+
 }
 
 

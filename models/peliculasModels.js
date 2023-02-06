@@ -1,7 +1,6 @@
 const pool = require('../utils/db')
 const peliculas = require('../queries/peliculasQueries');
 
-
 const getPeliculas = async () => {
     let client, result;
     try {

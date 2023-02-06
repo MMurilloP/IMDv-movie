@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Opiniones de usuarios SENSACINE
+    link(rel="stylesheet", href="stylesOpiniones.css")
+  body
+    h1 Opiniones de: #{pelicula}
+
+    ul.container
+      each opinion in user
+        li
+          strong Usuario:  
+            | #{opinion.userName}
+          br
+          br
+          span #{opinion.userOpinion}
+          br
+          br
