@@ -20,6 +20,7 @@ btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     if (response) {
         const popup = document.querySelectorAll(".popup");
         popup.forEach(pop => pop.style.display = "none");
+        window.alert('Pelicula eliminada')
         window.open('http://localhost:3000/admin', "_self");
     }
 

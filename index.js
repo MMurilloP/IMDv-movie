@@ -4,8 +4,10 @@ const morgan = require('morgan');
 const helmet = require("helmet");
 // const pool = require('./utils/db');
 // const bcrypt = require('bcrypt');
+const passport = require("passport");
+const session = require("express-session");
+require("./utils/auth_google");
 
-// const passport = require('passport');
 const cookieParser = require('cookie-parser')
 var cors = require('cors')
 require('dotenv').config()
@@ -14,6 +16,8 @@ require('dotenv').config()
 require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 const authorization = require('./middlewares/auth')
+const authGoogleRoutes = require('./routes/google_authRoutes')
+const {ensureAuth, ensureGuest} = require('./middlewares/googleAuth')
 
 const port = 3000;
 const app = express();
@@ -21,7 +25,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Passport config
+require('./utils/auth_google')(passport)
 
+app.use(session({ secret: 'SECRET'}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(
   helmet.contentSecurityPolicy({
@@ -50,6 +60,9 @@ const registerRoutes = require('./routes/registerRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const opinonesroutes = require('./routes/opinionesRoutes')
 
+
+app.use('/auth', authGoogleRoutes);
+
 //RUTAS
 
 // vistas de rol ADMIN: 
@@ -77,19 +90,29 @@ app.get("/", (req,res)=> {
 })
 
 //vista dashboard:
-app.get("/index", authorization.authorization_user, (req,res)=> {
+app.get("/index", ensureAuth || authorization.authorization_user, (req,res)=> {
   res.render("index" )
 })
 
 // vista de logout
+/* app.get('/logout', (req, res) => {
+  req.logout(function(err) {
+      if (err) { return next(err); }
+      req.session.destroy();
+      res.clearCookie("access-token").send('Goodbye! <br><br> <a href="/auth/google">Authenticate again</a>');
+    });
+
+}); */
+
+
+
 app.get("/logout", (req, res) => {
+  req.session.destroy();
   return res
     .clearCookie("access_token")
     .status(200)
     .redirect('login');
 });
-
-
 
 app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
 
@@ -101,8 +124,6 @@ app.get("/admin/createMovie",authorization.authorization_admin, (req,res)=> {
 app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
     res.render("editMovie")
 }) 
-
-
 
 
 //listener

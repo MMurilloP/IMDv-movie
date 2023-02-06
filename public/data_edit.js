@@ -22,8 +22,9 @@ document.getElementById("edit_btn").addEventListener("click", async (e)=>{
     for(let input of form){
         data[input.name] = input.value
     }
-    console.log("data recogida del formulario", data)
+    //console.log("data recogida del formulario", data)
     const postResponse = await editMovies(data);
+    window.alert('Pelicula editada')
 })
 
 
