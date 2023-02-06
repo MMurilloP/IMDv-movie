@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
 app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
@@ -104,6 +103,25 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
 
 
 
+//fetch
+app.get("/search", (req,res)=>{
+  res.render('search')  
+})
+
+app.post("/search", async (req, res)=> {
+  console.log(req.body);
+  const inputBuscar = req.body.inputBuscar;
+  console.log(inputBuscar);
+  const apiKey = "k_sjtp9i78";
+  const url = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${inputBuscar}`;
+  console.log(url) 
+
+
+  const request = await fetch(url);
+  const peliculas = await request.json();
+  console.log(peliculas)
+  res.json(peliculas)
+})
 
 //listener
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
