@@ -9,8 +9,8 @@ html(lang="en")
     body
         main 
             form#form(action="/user/search" method="POST")
-            input.input(type='text' name="searching"  placeholder='Search...')
-            input.singIn-btn#buscar(type="submit", value="Search")
+                input.input(type='text' name="searching"  placeholder='Search...')
+                input.singIn-btn#buscar(type="submit", value="Search")
             nav
                 input#menu(type='checkbox')
                 label(for='menu')  ☰
@@ -20,16 +20,18 @@ html(lang="en")
                     li Mis películas
                     li Salir
                 section.containerFilm
-                    h7  HOla #{movie}
+                    h7  HOla #{movies}
                 section.movies_container 
-                    each movie in movies
-                            img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
-                            h3 Título: #{movie.fullTitle}
-                            p Director: #{movie.directors} 
-                            p Año de lanzamiento: #{movie.year} 
-                            p Sinopsis: 
-                            p #{movie.plot} 
-                            p Duración: #{movie.runtimeStr}
+                    p movie
+                    if movies
+                        each movie in movies
+                                img(crossorigin="anonymous" src=movie.Poster, alt="", srcset="")
+                                h3 Título: #{movie.Title}
+                                p Director: #{movie.Director} 
+                                p Año de lanzamiento: #{movie.Year} 
+                                p Sinopsis: 
+                                p #{movie.Plot}
+                                p Duración: #{movie.Runtime}
                     //- h1  Adios
                     //- each object in objects
                     //-     h3 #{object.fullTitle}
@@ -39,4 +41,4 @@ html(lang="en")
                     //-     p Género: #{object.genres}
                     //-     p Duración: #{object.runtimeStr}
                     //-     button ✪
-        //- script(src='/script.js' type='module')
+        script(src='/script.js' type='module')

@@ -33,12 +33,15 @@ app.get("/menu", (req,res)=> {
 
 app.use("/user", searchRoutes)
 
-// app.get("/user/search", (req, res) => {
-//     res.render("searchFilm");
-// });
-// app.post("/search", (req, res)=> {
-//     res.render("searchFilm", {objects: "hola"})})
-    // console.log(req.body.title);})
+
+app.get("/user/search", (req, res) => {
+    res.render("searchFilm");
+});
+
+app.post("/user/search", (req, res)=> {
+    console.log(req.body);
+    res.status(200).json({msg:req.body})
+})
 // app.post("/search", (req,res)=> {
 //     const pelicula = req.body.searching;
 //     console.log(pelicula)
@@ -51,5 +54,3 @@ app.use("/user", searchRoutes)
 app.use('/admin',movieAdminRoutes);
 
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
-
-
