@@ -5,19 +5,30 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link( rel="stylesheet", href="/styles.css")
         title Mis películas
-    body 
+    body.admin
+        include admin_header.pug 
         main
             h1.title Crear películas
             
             section.form-container 
                 form.form(action="/admin/createMovie" method="POST")
+                    label(for="c_title") Título:
                     input(type="text" id="create_title" name="c_title" placeholder="Título:" required)
+                    label(for="c_dir") Director:
                     input(type="text" id="create_dir" name="c_dir" placeholder="Director:" required)
+                    label(for="c_plot") Sinopsis:
                     input(type="text"  id="create_plot" name="c_plot" placeholder="Sinopsis:" required)
+                    label(for="c_year") Año de estreno:
                     input(type="text" id="create_year" name="c_year" placeholder="Estreno (año):" required)
+                    label(for="c_run") Duración:
                     input(type="text" id="create_run" name="c_run" placeholder="Duración:" required)
+                    label(for="c_img") Poster:
                     input(type="text" id="create_img" name="c_img" placeholder="Imagen:")
+                    label(for="c_act") Actores:
                     input(type="text" id="create_actors" name="c_act" placeholder="Actores:")
+                    label(for="c_gen") Género:
                     input(type="text" id="create_genre" name="c_gen" placeholder="Género:")
+                    label(for="c_rat") Puntuación
                     input(type="text" id="create_rating" name="c_rat" placeholder="Rating:")
                     input(type="submit", value="Crear" )
+        

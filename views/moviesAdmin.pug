@@ -6,22 +6,30 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link( rel="stylesheet", href="/styles.css")
         title Mis películas
-    body 
-        main
-            
+    body.admin
+        header 
             h1.title Mis películas
-            a.btn(href="/admin/createMovie") Crear nueva
+        main
+            a(href="/admin/createMovie") 
+                button.btn Crear nueva
             section.movies_container 
                 each movie in movies
-                    span 
-                        a.btn(href='/admin/editMovie/'+ movie.id ) Editar
-                        a.btn(href="/admin/deleteMovie") Eliminar
-                    img(src=movie.image, alt="", srcset="")
-                    h3 Title: #{movie.fullTitle}
-                    p Director: #{movie.director} 
-                    p Año de lanzamiento: #{movie.year} 
-                    p Plot: #{movie.plot} 
-                    p Duración: #{movie.runtimeStr} 
-                    
-        script(src="/script.js") 
+                    section.movie_cont
+                        span.popup 
+                            button.close 
+                            h3 ¿Estas seguro que quieres eliminar esta película?
+                            a.confirm_del(type="submit" name=movie.id) Eliminar
+                        span 
+                            a(href='/admin/editMovie/'+ movie.id ) 
+                                button.btn Editar
+                            button.btn.btn_delete Eliminar
+                        img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
+                        h3 Título: #{movie.fullTitle}
+                        p Director: #{movie.directors} 
+                        p Año de lanzamiento: #{movie.year} 
+                        p Sinopsis: 
+                        p #{movie.plot} 
+                        p Duración: #{movie.runtimeStr} 
+        script(src="/delete.js" type='module') 
+
 

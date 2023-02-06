@@ -15,7 +15,6 @@ const getAllMovies = async (req,res) => {
 const createMovie = async (req,res) => {
     const {c_title, c_year, c_img, c_run, c_plot, c_dir, c_act, c_gen, c_rat} = req.body;
     
-
     try {
         let response = await new Movie({
                 id: uuid.v4(),
@@ -32,11 +31,13 @@ const createMovie = async (req,res) => {
             
         });
         let answer = await response.save();
+        res.status(201).render('createMovie')
+        /*  
         console.log("Respuesta de la API", answer);
-        res.status(201).json({
+        res.status(201).send({
             msj: `Película ${answer.fullTitle} guardada en el sistema con ID: ${answer.id}`,
-            movie: answer,
-        });
+            movie: answer, 
+        });  */
     } catch (error) {
         console.log("Este es el error que devuelve la api", error.message);
         res.status(400).json({
@@ -45,60 +46,75 @@ const createMovie = async (req,res) => {
     }
 }
 
+
+
+
+const getData = async (req, res) => {
+    const movie = await Movie.findOne({id: req.params.id});
+    res.render('editMovie',{movie: movie, id:req.params.id})
+    console.log(movie);
+
+}
+
+
 const editMovie = async (req, res) => {
-  
+    
     if (req.params.id) {
-      // con _id --> title no funciona
-      console.log(req.params.id);
-      const {e_title, e_year, e_img, e_run, e_plot, e_dir, e_act, e_gen, e_rat} = req.body;
+
+        const {e_title, e_year, e_img, e_run, e_plot, e_dir, e_act, e_gen, e_rat} = req.body;
+        console.log(req.params.id);
+        console.log(req.body);
         try {
-              const filter = {id: req.params.id}
-              console.log(filter);
-              const update = {
+                const filter = {id: req.params.id}
+                console.log(filter);
+                const update = {
                 
-                fullTitle: e_title,
-                year: e_year,
-                image: e_img,
-                runtimeStr: e_run,
-                plot: e_plot,
-                directors: e_dir,
-                actorList: e_act,
-                genres: e_gen,
-                imDbRating: e_rat,
-                opinions: "",
+                    fullTitle: e_title,
+                    year: e_year,
+                    image: e_img,
+                    runtimeStr: e_run,
+                    plot: e_plot,
+                    directors: e_dir,
+                    actorList: e_act || "",
+                    genres: e_gen,
+                    imDbRating: e_rat,
+                    opinions: "",
                 
             }
-              console.log(update);
-              const doc = await Movie.findOneAndUpdate(filter,update);
-              let response = await doc.save();
-              
-          res.status(200).json({
-              msj: "Película actualizada " + response.fullTitle,
-          }); 
-      } catch (err) {
-          res.status(400).json({
-              msj: err.message,
-          });
-      }
-      } else {
-          res.status(400).json({
-          msj: "Es necesario introducir el ID de la película para actualizarla",
-      });
-      }
-  }; 
+              //console.log(update);
+                const doc = await Movie.findOneAndUpdate(filter,update);
+                let response = await doc.save();
+                
+            res.status(200).json({
+                msj: "Película actualizada " + response.fullTitle,
+            }); 
+        } catch (err) {
+            res.status(400).json({
+                msj: err.message,
+            });
+        }
+        } else {
+            res.status(400).json({
+            msj: "Es necesario introducir el ID de la película para actualizarla",
+        });
+        }
+    }; 
 
 
-  const deleteMovie = async (req,res)=>{
-    Movie.findOneAndDelete({id: req.body.id }, function (err, docs) {
+const removeMovie = async (req,res)=>{
+    console.log(req.body.data);
+    const doc= Movie.findOneAndDelete({id: req.body.data }, function (err, docs) {
       if (err){
         res.status(400).json({
             msj: err.message,
         });
       }
       else{
+        //let response =  doc.save();
+        
         res.status(200).json({
             msj: "Película borrada : "+ docs,
-        });
+        }); 
           
       }
   });
@@ -108,6 +124,7 @@ const editMovie = async (req, res) => {
 module.exports = {
     createMovie,
     editMovie,
-    deleteMovie,
-    getAllMovies
+    removeMovie,
+    getAllMovies,
+    getData
 }
