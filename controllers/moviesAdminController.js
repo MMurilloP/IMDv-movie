@@ -1,37 +1,41 @@
-const Movie = require('../models/movies')
+const Movie = require('../models/movies');
 const uuid = require('uuid');
 const uuid4 = uuid.v4();
 
-/* 
+
 const getAllMovies = async (req,res) => {
-    let products = await Movie.find({}, "-_id -__v")
-    res.status(200).json(products);
-} */
+    let movies = await Movie.find({}, "-_id -__v")
+    console.log(movies);
+    //res.status(200).json(movies);
+    res.render('moviesAdmin',{movies: movies})
+    //return movies
+    
+} 
 
 const createMovie = async (req,res) => {
-    const newMovie = req.body;
-    const id = uuid4
+    const {c_title, c_year, c_img, c_run, c_plot, c_dir, c_act, c_gen, c_rat} = req.body;
+    
 
     try {
         let response = await new Movie({
-            id: id,
-            fullTitle: newMovie.fullTitle,
-            year: newMovie.year,
-            image: newMovie.image,
-            runtimeStr: newMovie.runtimeStr,
-            plot: newMovie.plot,
-            directors: newMovie.directors,
-            actorList: newMovie.actorList,
-            genres: newMovie.genres,
-            imDbRating: newMovie.imDbRating,
-            opinions: newMovie.opinions,
+                id: uuid.v4(),
+                fullTitle: c_title,
+                year: c_year,
+                image: c_img,
+                runtimeStr: c_run,
+                plot: c_plot,
+                directors: c_dir,
+                actorList: c_act,
+                genres: c_gen,
+                imDbRating: c_rat,
+                opinions: "",
             
         });
         let answer = await response.save();
         console.log("Respuesta de la API", answer);
         res.status(201).json({
             msj: `Película ${answer.fullTitle} guardada en el sistema con ID: ${answer.id}`,
-            product: answer,
+            movie: answer,
         });
     } catch (error) {
         console.log("Este es el error que devuelve la api", error.message);
@@ -46,22 +50,22 @@ const editMovie = async (req, res) => {
     if (req.params.id) {
       // con _id --> title no funciona
       console.log(req.params.id);
-      const newData = req.body;
+      const {e_title, e_year, e_img, e_run, e_plot, e_dir, e_act, e_gen, e_rat} = req.body;
         try {
               const filter = {id: req.params.id}
               console.log(filter);
               const update = {
                 
-                fullTitle: newData.fullTitle,
-                year: newData.year,
-                image: newData.image,
-                runtimeStr: newData.runtimeStr,
-                plot: newData.plot,
-                directors: newData.directors,
-                actorList: newData.actorList,
-                genres: newData.genres,
-                imDbRating: newData.imDbRating,
-                opinions: newData.opinions,
+                fullTitle: e_title,
+                year: e_year,
+                image: e_img,
+                runtimeStr: e_run,
+                plot: e_plot,
+                directors: e_dir,
+                actorList: e_act,
+                genres: e_gen,
+                imDbRating: e_rat,
+                opinions: "",
                 
             }
               console.log(update);
@@ -104,6 +108,6 @@ const editMovie = async (req, res) => {
 module.exports = {
     createMovie,
     editMovie,
-    deleteMovie
-    //getAllMovies
+    deleteMovie,
+    getAllMovies
 }

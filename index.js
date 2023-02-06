@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+require('./utils/db_mongo');
+const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 
 const port = 3000;
 const app= express();
@@ -53,5 +55,22 @@ app.get("/logout", (req,res)=> {
 })
 
 
+app.use('/admin',movieAdminRoutes);
+
+
+app.get("/admin/createMovie", (req,res)=> {
+    res.render("createMovie")
+})  
+
+app.get("/admin/editMovie/:id", (req,res)=> {
+    res.render("editMovie")
+}) 
+
+app.get("/admin/deleteMovie", (req,res)=> {
+    res.render("deleteMovie")
+}) 
+
+
 //listener
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
+

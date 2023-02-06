@@ -66,6 +66,14 @@ h2 {
   color: white;
 }
 
+a{
+  text-decoration: none;
+}
+span {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 .title {
   -webkit-animation: title 4s linear both;
   animation: title 4s linear both;
@@ -356,6 +364,27 @@ h2 {
   }
 }
 
+
+.singIn-btn, .btn{
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #d90429;
+    background: #d90429;
+  }
+  .singIn-btn:hover {
+    background: #fff;
+    color: #d90429;
+    }
+
 .roll-in-left {
 	-webkit-animation: roll-in-left 1s ease-out both;
 	        animation: roll-in-left 1s ease-out both;
@@ -371,6 +400,7 @@ h2 {
     -webkit-transform: translateX(0) rotate(0deg);
             transform: translateX(0) rotate(0deg);
     opacity: 1;
+
   }
 }
 @keyframes roll-in-left {
@@ -443,9 +473,60 @@ h2 {
   border: 2px solid #d90429;
   background: #d90429;
 }
+
 .singIn-enviar:hover {
   background: #fff;
   color: #d90429;
+}
+
+.singIn-google {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #ff7119;
+  background: #ff7119;
+}
+.singIn-google:hover {
+  background: #fff;
+  color: #ff7119;
+}
+
+.singIn-facebook {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #4433ff;
+  background: #4433ff;
+}
+.singIn-facebook:hover {
+  background: #fff;
+  color: #4433ff;
+}
+
+
+
+.movies_container{
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  color: white;
+
 }
 
 
