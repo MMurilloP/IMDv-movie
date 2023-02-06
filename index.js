@@ -120,7 +120,8 @@ app.post("/search", async (req, res)=> {
   const request = await fetch(url);
   const peliculas = await request.json();
   console.log(peliculas)
-  res.json(peliculas)
+  // res.json(peliculas)
+  res.render("peliculas", { peliculas });
 })
 
 //listener

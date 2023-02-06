@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Register
+    link(rel="stylesheet", href="stylesPeliculas.css")
+    body 
+        main
+        
+        h1 PELICULAS Encontradas
+
+        each valor in peliculas.results
+            div.divpeliculas
+                h4=valor.title
+                p= valor.description
+                img(src=valor.image)

@@ -643,3 +643,14 @@ input{
   display: inline-block;
   content: "\00d7"; /* This will render the 'X' */
 }
+
+.divpeliculas {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 40px;
+  height: 70px;
+}
