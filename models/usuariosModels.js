@@ -16,7 +16,6 @@ const getUsuarios = async () => {
     return result;
 }
 
-
 const createUsuario = async (usuario) => {
     const { username, email, role, password } = usuario;
     let client, result;
@@ -31,6 +30,8 @@ const createUsuario = async (usuario) => {
     }
     return result;
 }
+
+// user:
 
 
 module.exports = {

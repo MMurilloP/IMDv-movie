@@ -496,10 +496,10 @@ input{
   border: 2px solid #d90429;
   background: #d90429;
 }
+
 .singIn-enviar:hover {
   background: #fff;
-
-  color: #d90429
+  color: #d90429;
 }
 
 .singIn-google {
@@ -621,6 +621,7 @@ input{
 .movies_container p{
   text-align: start;
   color: white;
+
 }
 
 

@@ -1,6 +1,6 @@
 const usuariosModel = require('../models/usuariosModels')
 
-
+//admin
 const geUsuarios = async (req, res) => {
   let usuario;
   if (req.query) {
@@ -20,6 +20,11 @@ const geUsuarios = async (req, res) => {
         data: newEntry
     });
 }
+
+
+//user
+
+
 
 module.exports = {
     geUsuarios,
