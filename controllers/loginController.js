@@ -1,5 +1,8 @@
 const pool = require('../utils/db');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser')
+
 
 const getLogin = (req,res)=> {
     res.render("login")

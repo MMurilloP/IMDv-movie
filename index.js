@@ -2,11 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 
 const helmet = require("helmet");
-const pool = require('./utils/db');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const validator = require('validator');
-const passport = require('passport');
+// const pool = require('./utils/db');
+// const bcrypt = require('bcrypt');
+
+// const passport = require('passport');
 const cookieParser = require('cookie-parser')
 var cors = require('cors')
 require('dotenv').config()
