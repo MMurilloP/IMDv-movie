@@ -17,10 +17,31 @@ const postLogin = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.render("login" , {msj: "La contraseña es incorrecta"}) 
     }
-    // Iniciar sesión (por ejemplo, guardar en una cookie el ID del usuario)
-    res.cookie("userId", user.rows[0].id);
-    res.redirect('index',);
+  
+    const userForToken = {
+      userLog : user,
+    
   }
+
+  const token = jwt.sign(userForToken, process.env.CLAVE);
+
+  if (userForToken.userLog.rows[0].role === 'user') {
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      secure: "production",
+    })
+    .status(200)
+    .redirect('index');
+  }else if (userForToken.userLog.rows[0].role === 'admin') {
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      secure: "production",
+    })
+    .status(200)
+    .redirect('admin');
+  }
+};
+
 
 
 module.exports = {

@@ -33,7 +33,6 @@ app.use('/admin/usuarios', usuariosRoutes);
 app.use('/admin/peliculas', peliculasRoutes);
 
 
-
 //vistas de rol USER:
 //http://localhost:3000/register
 app.use ('/register', registerRoutes);
