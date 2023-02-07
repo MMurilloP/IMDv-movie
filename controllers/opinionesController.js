@@ -47,7 +47,7 @@ const sensacineOpiniones = async (req, res) => {
     //cierro el navegador
     await browser.close()
   
-  res.render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
+  res.status(400).render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
   
   }
 

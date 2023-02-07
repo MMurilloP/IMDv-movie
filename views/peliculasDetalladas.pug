@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title PELICULAS Encontradas
+    link(rel="stylesheet", href="stylesPeliculas.css")
+  body 
+    main
+      a(href='/search')
+        button.singIn-btn Busca otra pelicula
+        
+    h1 PELICULAS Encontradas
+      div.divpeliculas
+        h4= pelicula.fullTitle
+        p= pelicula.plot
+        
+
+
+  script(src="/detallePeliculas.js" type= 'module') 

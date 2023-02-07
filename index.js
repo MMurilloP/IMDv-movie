@@ -22,15 +22,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      "img-src": ["'self'", "https: data:"]
-    },
-    crossOriginEmbedderPolicy: false,
-  })
-)
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     useDefaults: true,
+//     directives: {
+//       "img-src": ["'self'", "https: data:"]
+//     },
+//     crossOriginEmbedderPolicy: false,
+//   })
+// )
 app.use('*', cors());
 
 app.use(cookieParser());
@@ -104,6 +104,16 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
 //fetch
 //http://localhost:3000/search
 app.use('/search', searchPeliculasRoutes)
+
+
+
+app.get ('/peliculaDetalladas', (req,res)=>{
+  res.render('peliculasDetalladas', {pelicula: pelicula })
+})
+
+app.post ('/peliculaDetalladas', (req,res)=>{
+  res.render('peliculasDetalladas', {pelicula: pelicula })
+})
 
 // app.get("/search", (req,res)=>{
 //   res.render('search')  
