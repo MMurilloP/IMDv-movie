@@ -1,22 +1,41 @@
 const getSearch = (req,res)=>{
     res.render('search')  
   }
-  
+ 
 const getPelicula = async (req, res)=> {
-    console.log(req.body);
+    // console.log(req.body);
     const inputBuscar = req.body.inputBuscar;
-    console.log(inputBuscar);
-    const apiKey = "k_g4t828hf";
+    // console.log(inputBuscar);
+    const apiKey = "k_sjtp9i78";
     const url = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${inputBuscar}`;
-    console.log(url) 
+    // console.log(url) 
   
     const request = await fetch(url);
     const peliculas = await request.json();
-    console.log(peliculas)
-    const ids = peliculas.results.map(pelicula => pelicula.id);// guardo los ids en un array, necesito exportarlos a otra ruta para hacer otro fetch a a(href=`https://imdb-api.com/en/API/Title/${apiKey}/${valor.id}`)
+    // console.log(peliculas)
+    const ids = peliculas.results.map(pelicula => pelicula.id);
+    // console.log(ids);
 
-    console.log(ids);
-    res.status(400).render("peliculas", { peliculas, apiKey });
+    const urls = [];
+    for(let i= 0; i < 4 ; i++){
+      // console.log(ids[i])
+      const url = `https://imdb-api.com/en/API/Title/${apiKey}/${ids[i]}`
+      // console.log(url)
+      urls.push(url)
+    }
+    // console.log("*************")
+    // console.log(urls)
+    // console.log("*************")
+
+    const detallePeliculas = await Promise.all(urls.map(async url => {
+      const resp = await fetch(url);
+      return resp.json();
+    }));
+
+    console.log(detallePeliculas);
+
+
+    res.status(400).render("peliculas", { detallePeliculas });
   }
   
 module.exports = {

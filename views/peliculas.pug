@@ -9,11 +9,17 @@ html
         button.singIn-btn Busca otra pelicula
         
     h1 PELICULAS Encontradas
-    each valor in peliculas.results
-      div.divpeliculas
-        h4=valor.title
-        //- p= valor.id
-        p= valor.description
+    each valor in detallePeliculas
+      div.valor.id 
+        h4=valor.fullTitle
+        p= valor.year
+        p= valor.directors
+        p= valor.genres
+        p= valor.runtimeStr
+        div.divDetalles
+          p= valor.plot
+          p= valor.stars
+          p= valor.imDbRating
         button#butonPelicula(value= valor.id) Ir a pelicula
         img(src=valor.image)
 
