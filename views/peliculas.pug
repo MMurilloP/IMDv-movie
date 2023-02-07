@@ -1,15 +1,20 @@
-doctype html
+//- doctype html
 html
   head
-    title Register
+    title PELICULAS Encontradas
     link(rel="stylesheet", href="stylesPeliculas.css")
-    body 
-        main
+  body 
+    main
+      a(href='/search')
+        button.singIn-btn Busca otra pelicula
         
-        h1 PELICULAS Encontradas
-
-        each valor in peliculas.results
-            div.divpeliculas
-                h4=valor.title
-                p= valor.description
-                img(src=valor.image)
+    h1 PELICULAS Encontradas
+    each valor in peliculas.results
+      div.divpeliculas
+        h4=valor.title
+        //- p= valor.id
+        p= valor.description
+        a(href=`https://imdb-api.com/en/API/Title/${apiKey}/${valor.id}`)
+          img(src=valor.image)
+          
+        

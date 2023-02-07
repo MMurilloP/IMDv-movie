@@ -5,11 +5,14 @@ html
     link(rel="stylesheet", href="styles.css")
     body 
         main
+        a(href='/logout')
+             button.singIn-btn Inicio
+        
         h1 BUSCAR PELICULAS
         form(id="form" action ="/search" method="post")
-            label(for="title") Busca la pelicula
+            label(for="title")
             input(type="text" id="title" name="inputBuscar" placeholder="Search Movie")
             input(type="submit", value="Buscar")
         
-        script(src="./js/searchMovie.js") 
+        //- script(src="./js/searchMovie.js") 
   
