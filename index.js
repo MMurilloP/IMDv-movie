@@ -87,8 +87,6 @@ app.get("/logout", (req, res) => {
     .redirect('login');
 });
 
-
-
 app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
 
 
@@ -106,7 +104,6 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
 app.use('/search', searchPeliculasRoutes)
 
 
-
 app.get ('/peliculaDetalladas', (req,res)=>{
   res.render('peliculasDetalladas', {pelicula: pelicula })
 })
@@ -115,23 +112,7 @@ app.post ('/peliculaDetalladas', (req,res)=>{
   res.render('peliculasDetalladas', {pelicula: pelicula })
 })
 
-// app.get("/search", (req,res)=>{
-//   res.render('search')  
-// })
 
-// app.post("/search", async (req, res)=> {
-//   console.log(req.body);
-//   const inputBuscar = req.body.inputBuscar;
-//   console.log(inputBuscar);
-//   const apiKey = "k_b5wbsgtg";
-//   const url = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${inputBuscar}`;
-//   console.log(url) 
-
-//   const request = await fetch(url);
-//   const peliculas = await request.json();
-//   console.log(peliculas)
-//   res.render("peliculas", { peliculas, apiKey });
-// })
 
 
 //listener

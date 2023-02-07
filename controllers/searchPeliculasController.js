@@ -17,7 +17,7 @@ const getPelicula = async (req, res)=> {
     // console.log(ids);
 
     const urls = [];
-    for(let i= 0; i < 4 ; i++){
+    for(let i= 0; i < ids.length ; i++){
       // console.log(ids[i])
       const url = `https://imdb-api.com/en/API/Title/${apiKey}/${ids[i]}`
       // console.log(url)

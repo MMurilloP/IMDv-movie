@@ -1,3 +1,4 @@
+html
 doctype html
 html
   head
@@ -10,7 +11,7 @@ html
         
     h1 PELICULAS Encontradas
     each valor in detallePeliculas
-      div.valor.id 
+      div.divpeliculas(id= valor.id)
         h4=valor.fullTitle
         p= valor.year
         p= valor.directors
@@ -20,8 +21,10 @@ html
           p= valor.plot
           p= valor.stars
           p= valor.imDbRating
-        button#butonPelicula(value= valor.id) Ir a pelicula
+          button.singIn-btn Añadir Favoritos
+        button#butonPelicula.singIn-btn( value= valor.id) Ir a pelicula
         img(src=valor.image)
+
 
 
   script(src="/detallePeliculas.js" type= 'module') 
