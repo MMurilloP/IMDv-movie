@@ -22,16 +22,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
-app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      "img-src": ["'self'", "https: data:"]
-    },
-    crossOriginEmbedderPolicy: false,
-  })
-)
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     useDefaults: true,
+//     directives: {
+//       "img-src": ["'self'", "https: data:"]
+//     },
+//     crossOriginEmbedderPolicy: false,
+//   })
+// )
 app.use('*', cors());
 
 app.use(cookieParser());
@@ -46,9 +45,10 @@ app.set("views", "./views");
 //IMPORTO RUTAS 
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const peliculasRoutes = require ('./routes/peliculasRoutes');
-const registerRoutes = require('./routes/registerRoutes')
-const loginRoutes = require('./routes/loginRoutes')
-const opinonesroutes = require('./routes/opinionesRoutes')
+const registerRoutes = require('./routes/registerRoutes');
+const loginRoutes = require('./routes/loginRoutes');
+const opinonesroutes = require('./routes/opinionesRoutes');
+const searchPeliculasRoutes = require('./routes/searchPeliculasRoutes');
 
 //RUTAS
 
@@ -58,8 +58,6 @@ const opinonesroutes = require('./routes/opinionesRoutes')
 app.use('/admin/usuarios', usuariosRoutes);
 //http://localhost:3000/admin/peliculas
 app.use('/admin/peliculas', peliculasRoutes);
-
-
 
 //vistas de rol USER:
 //http://localhost:3000/register
@@ -103,6 +101,37 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
 }) 
 
 
+//fetch
+//http://localhost:3000/search
+app.use('/search', searchPeliculasRoutes)
+
+
+
+app.get ('/peliculaDetalladas', (req,res)=>{
+  res.render('peliculasDetalladas', {pelicula: pelicula })
+})
+
+app.post ('/peliculaDetalladas', (req,res)=>{
+  res.render('peliculasDetalladas', {pelicula: pelicula })
+})
+
+// app.get("/search", (req,res)=>{
+//   res.render('search')  
+// })
+
+// app.post("/search", async (req, res)=> {
+//   console.log(req.body);
+//   const inputBuscar = req.body.inputBuscar;
+//   console.log(inputBuscar);
+//   const apiKey = "k_b5wbsgtg";
+//   const url = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${inputBuscar}`;
+//   console.log(url) 
+
+//   const request = await fetch(url);
+//   const peliculas = await request.json();
+//   console.log(peliculas)
+//   res.render("peliculas", { peliculas, apiKey });
+// })
 
 
 //listener

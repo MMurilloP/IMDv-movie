@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Register
+    link(rel="stylesheet", href="styles.css")
+    body 
+        main
+        a(href='/logout')
+             button.singIn-btn Inicio
+        
+        h1 BUSCAR PELICULAS
+        form(id="form" action ="/search" method="post")
+            label(for="title")
+            input(type="text" id="title" name="inputBuscar" placeholder="Search Movie")
+            input(type="submit", value="Buscar")
+        
+        //- script(src="./js/searchMovie.js") 
+  

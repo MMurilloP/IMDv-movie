@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title PELICULAS Encontradas
+    link(rel="stylesheet", href="stylesPeliculas.css")
+  body 
+    main
+      a(href='/search')
+        button.singIn-btn Busca otra pelicula
+        
+    h1 PELICULAS Encontradas
+    each valor in peliculas.results
+      div.divpeliculas
+        h4=valor.title
+        //- p= valor.id
+        p= valor.description
+        button#butonPelicula(value= valor.id) Ir a pelicula
+        img(src=valor.image)
+
+
+  script(src="/detallePeliculas.js" type= 'module') 

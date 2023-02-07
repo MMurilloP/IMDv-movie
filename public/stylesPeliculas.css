@@ -1,0 +1,59 @@
+body {
+  background-image: url("https://images.pexels.com/photos/11961850/pexels-photo-11961850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  margin: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.divpeliculas {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px #ccc;
+  display: inline-block;
+  height: auto;
+  margin: 1%;
+  text-align: center;
+  width: 30%;
+}
+
+h4 {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 14px;
+  margin: 20px;
+}
+
+img {
+  border-radius: 0px 0px 10px 10px;
+  height: auto;
+  width: 70%;
+  margin: 20px;
+}
+.singIn-btn {
+  min-width: 130px;
+  margin: 20px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #d90429;
+  background: #d90429;
+}
+.singIn-btn:hover {
+  background: #fff;
+  color: #d90429;
+}

@@ -4,7 +4,7 @@ const { emailRegex, passwordRegex } = require('../utils/regex')
 
 
 const getRegister = (req,res)=> {
-    res.render("register")
+    res.status(400).render("register")
   };
 
 const postRegister = async (req, res) => {
@@ -34,7 +34,7 @@ const postRegister = async (req, res) => {
       if (err) {
         res.status(500).send(err.stack);
       } else {
-        res.render('login', {userLogged: nombreUsuarioLogeado})
+        res.status(400).render('login', {userLogged: nombreUsuarioLogeado})
       }
     });
   };
