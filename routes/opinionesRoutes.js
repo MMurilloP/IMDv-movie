@@ -4,7 +4,6 @@ const opinionesRoutes = express.Router();
 
 
 opinionesRoutes.get('/:title', opinionesController.sensacineOpiniones);
-// opinionesRoutes.post('/:title', opinionesController.postOpiniones);
 
 
 
