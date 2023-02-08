@@ -6,6 +6,25 @@ IMDv-movie es una aplicación web que permite a los usuarios ver y buscar pelíc
 ## Autores
 IMDv-movie fue desarrollado por Manuel, Ana, Jorge.
 
+## Rutas
+
+1º- inicio de la app:
+    http://localhost:3000/
+
+2º - Desde ahi, puedes logearte si ya eres usuario
+http://localhost:3000/login
+o 
+registrarte --- Por favor, registrate como usuario =)
+Recuerda, apuntarte si te registras, luego tendras que logearte
+http://localhost:3000/register
+
+3º - 
+Si te logeas con ADMIN:
+    - En tu vista podras, crear peliculas, editar peliculas, borrar peliculas desde la base de datos.
+
+Si te logeas como USER:
+
+
 ## Descripción
 
 
