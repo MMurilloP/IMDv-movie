@@ -25,9 +25,13 @@ html
           p Trama: #{valor.plot}
           p Actores: #{valor.stars}
           p Rating IMDB: #{valor.imDbRating}
-          button.singIn-btn.favorites Favoritos
+
+          button.singIn-btn.favorites(value=valor.id) Favoritos
+
+
           //- a(href='/opiniones')
           button.singIn-btn.btnOpiniones(value=valor.fullTitle) Opiniones
+
 
         img.tilt-in-top-1(src=valor.image)
 
