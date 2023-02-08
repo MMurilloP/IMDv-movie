@@ -36,7 +36,6 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 //IMPORTO RUTAS 
-
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const opinonesroutes = require('./routes/opinionesRoutes');
