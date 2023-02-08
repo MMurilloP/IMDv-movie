@@ -13,8 +13,6 @@
     }));
     
 
-
-
     const deleteMovie = async (id_movie)=> {
         const options = {
             method: 'DELETE',
