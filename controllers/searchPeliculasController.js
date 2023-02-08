@@ -1,3 +1,6 @@
+const fetch = require('node-fetch')
+
+
 const getSearch = (req,res)=>{
     res.render('search')  
   }

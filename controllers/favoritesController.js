@@ -1,5 +1,5 @@
 const models = require('../models/favoriteModels');
-
+const fetch = require('node-fetch')
 
 const getFavorites = async (req, res) => {
     const id_usuario = req.decoded.userLog.rows[0].id_usuario
