@@ -8,7 +8,7 @@ html(lang="en")
         title Mis películas
     body.admin
         header 
-            h5 Vista: admin
+            h5 Vista Admin
             a(href='/logout')
                 button.btn Logout
             h1.title Mis películas
@@ -26,7 +26,7 @@ html(lang="en")
                             a(href='/admin/editMovie/'+ movie.id ) 
                                 button.btn Editar
                             button.btn.btn_delete Eliminar
-                        img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
+                        img.adminImg(crossorigin="anonymous" src=movie.image, alt="", srcset="")
                         h3 Título: #{movie.fullTitle}
                         p Director: #{movie.directors} 
                         p Año de lanzamiento: #{movie.year} 
