@@ -11,6 +11,7 @@ var cors = require('cors')
 require('dotenv').config()
 
 
+
 require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
 const authorization = require('./middlewares/auth')
@@ -24,13 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      "img-src": ["'self'", "https: data:"]
-    },
-    crossOriginEmbedderPolicy: false,
-  })
+    helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+            "img-src": ["'self'", "https: data:"]
+        },
+        crossOriginEmbedderPolicy: false,
+    })
 )
 app.use('*', cors());
 
@@ -43,9 +44,17 @@ app.use(express.static('public'));
 app.set("view engine", "pug");
 app.set("views", "./views");
 
+//swagger
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 //IMPORTO RUTAS 
 const usuariosRoutes = require('./routes/usuariosRoutes');
-const peliculasRoutes = require ('./routes/peliculasRoutes');
+const peliculasRoutes = require('./routes/peliculasRoutes');
 const registerRoutes = require('./routes/registerRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const opinonesroutes = require('./routes/opinionesRoutes')
@@ -63,48 +72,44 @@ app.use('/admin/peliculas', peliculasRoutes);
 
 //vistas de rol USER:
 //http://localhost:3000/register
-app.use ('/register', registerRoutes);
+app.use('/register', registerRoutes);
 
 //http://localhost:3000/login
 
-app.use ('/login', loginRoutes);
+app.use('/login', loginRoutes);
 
 // vista de opiniones de peliculas de sensacine
-app.use('/opiniones',  opinonesroutes);
+app.use('/opiniones', opinonesroutes);
 //vista bienvenida: /
-app.get("/", (req,res)=> {
-  res.render("inicio")
+app.get("/", (req, res) => {
+    res.render("inicio")
 })
 
 //vista dashboard:
-app.get("/index", authorization.authorization_user, (req,res)=> {
-  res.render("index" )
+app.get("/index", authorization.authorization_user, (req, res) => {
+    res.render("index")
 })
 
 // vista de logout
 app.get("/logout", (req, res) => {
-  return res
-    .clearCookie("access_token")
-    .status(200)
-    .redirect('login');
+    return res
+        .clearCookie("access_token")
+        .status(200)
+        .redirect('login');
 });
 
 
 
-app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
+app.use('/admin', authorization.authorization_admin, movieAdminRoutes);
 
 
-app.get("/admin/createMovie",authorization.authorization_admin, (req,res)=> {
+app.get("/admin/createMovie", authorization.authorization_admin, (req, res) => {
     res.render("createMovie")
-})  
+})
 
-app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
+app.get("/admin/editMovie/:id", authorization.authorization_admin, (req, res) => {
     res.render("editMovie")
-}) 
-
-
-
+})
 
 //listener
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
-
