@@ -60,16 +60,5 @@ btnOpiniones.forEach(button => {
     console.log(clickedButtonId);
     window.open(`http://localhost:3000/opiniones/${clickedButtonId}`)
     
-// const options = {
-//   method: 'POST',
-//   headers:{
-//   'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify(clickedButtonId)
-//   }
-//   //console.log(movie);
-//   const response =  fetch(`http://localhost:3000/opiniones/${clickedButtonId}`, options);
-//   const results =  response.json(); 
-
     });
   });
