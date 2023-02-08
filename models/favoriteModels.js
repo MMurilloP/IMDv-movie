@@ -34,6 +34,8 @@ const getAllFavorites = async (id_usuario) => {
 
 const deleteFavorite = async (nombre) => {
     let client,result;
+    console.log('++++++++++++++++++++++++++++++');
+    console.log(nombre);
     try{
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(queries.deleteFavorites,[nombre])

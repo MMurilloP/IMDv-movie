@@ -58,8 +58,12 @@ const createFavorite = async (req, res) => {
 //DELETE
 const deleteFavorites = async (req, res) => {
     let entries;
-    entries = await models.deleteFavorite(req.query.nombre);
-    res.send('Pelicula borrada');
+    const id  = req.body.id_movie.data
+    console.log('----------------');
+    console.log(id);
+    console.log(req.body);
+    entries = await models.deleteFavorite(id);
+    /* res.send('Pelicula borrada'); */
 }
 
 module.exports = {

@@ -98,8 +98,6 @@ const deleteFavorite = async (product) => {
 }
 
 
-
-
 const btnOpiniones = document.querySelectorAll(".btnOpiniones")
 
 btnOpiniones.forEach(button => {
@@ -110,4 +108,6 @@ btnOpiniones.forEach(button => {
     
     });
   });
+
+
 
