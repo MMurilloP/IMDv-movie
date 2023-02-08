@@ -26,7 +26,11 @@ html
           p Actores: #{valor.stars}
           p Rating IMDB: #{valor.imDbRating}
           button.singIn-btn.favorites Favoritos
+          //- a(href='/opiniones')
+          button.singIn-btn.btnOpiniones(value=valor.fullTitle) Opiniones
+
         img.tilt-in-top-1(src=valor.image)
+
         br
         button#butonPelicula.singIn-btn( value= valor.id) Ir a pelicula
 
