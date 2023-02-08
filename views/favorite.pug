@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Favorites
+    include ./header.pug
+    body
+        main
+            h3 Seccion favoritos
+            section 
+                each valor, i in detallePeliculas
+                    article 
+                        h1 Title: #{valor[i].title}
+                        img(src=valor[i].img)
+                        p Year: #{valor[i].year}
+                        p Director: #{valor[i].director}
+                        p Genre: #{valor[i].genre}
+                        p Runtime: #{valor[i].runtime}
+                        button Remove
+            section
+            
+
+            section
