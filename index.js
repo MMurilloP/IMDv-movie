@@ -1,6 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require("helmet");
+const path = require('path');
+
+
+
 
 const cookieParser = require('cookie-parser')
 var cors = require('cors')
@@ -31,9 +35,12 @@ app.use(cookieParser());
 app.use(morgan('tiny'));
 
 // Template engine
-app.use(express.static('public'));
-app.set("view engine", "pug");
-app.set("views", "./views");
+// app.use(express.static('public'));
+// app.set("view engine", "pug");
+// app.set("views", "./views");
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //IMPORTO RUTAS 
 
