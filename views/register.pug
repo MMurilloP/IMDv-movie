@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Register
+    link(rel="stylesheet", href="styles.css")
+    body 
+        main
+            a(
+                href='/login'
+                )
+                button.singIn-btn Login
+            br
+            
+            
+            h1.title IMDV movies
+            p #{msj}
+            h4 Registro:
+            section.form-container
+                form.singIn-form(action="/register" method ="POST")
+                    input(type="text",name ="username", placeholder="Tú Nombre de usuario" required).singIn-name-input
+                    br
+                    input(type="text",name ="email", placeholder="Tú Email" required).singIn-name-input
+                    br
+                    input(type="password" name="password", placeholder="Contraseña" required).singIn-pass-input
+                    br
+                    select(name="role").singIn-pass-input
+                        option(value="admin") Admin
+                        option(value="user") User
+                    input(type="submit", value="Registrar" required).singIn-enviar
+                    br
+            

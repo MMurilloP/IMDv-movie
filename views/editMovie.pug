@@ -1,0 +1,38 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link( rel="stylesheet", href="/styles.css")
+        title Mis películas
+    body.admin
+        include admin_header.pug 
+        main
+            
+            h1.title Editar películas 
+            
+            section.form-container 
+                form.form(action="/admin/editMovie/" + movie.id)
+                    label(for="e_id") ID:
+                    input(type="text" id="edit_id" name="e_id" placeholder="ID:" value=id disabled)
+                    label(for="e_title") Título:
+                    input(type="text" id="edit_title" name="e_title" placeholder="Título:" value=movie.fullTitle required)
+                    label(for="e_dir") Director:
+                    input(type="text" id="edit_dir" name="e_dir" placeholder="Director:" value=movie.directors required)
+                    label(for="e_plot") Sinopsis:
+                    input(type="text"  id="edit_plot" name="e_plot" placeholder="Sinopsis:" value=movie.plot required)
+                    label(for="e_year") Año de estreno:
+                    input(type="text" id="edit_year" name="e_year" placeholder="Estreno (año):" value=movie.year required)
+                    label(for="e_run") Duración:
+                    input(type="text" id="edit_run" name="e_run" placeholder="Duración:" value=movie.runtimeStr required)
+                    label(for="e_img") Poster:
+                    input(type="text" id="edit_img" name="e_img" placeholder="Poster:" value=movie.image)
+                    label(for="e_act") Actores:
+                    input(type="text" id="edit_actors" name="e_act" placeholder="Actores:" value=movie.actorList)
+                    label(for="e_gen") Género:
+                    input(type="text" id="edit_genre" name="e_gen" placeholder="Género:" value=movie.genres)
+                    label(for="e_rat") Puntuación
+                    input(type="text" id="edit_rating" name="e_rat" placeholder="Puntuación:" value=movie.imDbRating)
+                    input#edit_btn(type="submit", value="Editar")
+        script(src="/data_edit.js" type='module') 
+

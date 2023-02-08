@@ -1,0 +1,39 @@
+html
+doctype html
+html
+  head
+    title PELICULAS Encontradas
+    link(rel="stylesheet", href="stylesPeliculas.css")
+  body 
+    main
+      a(href='/search')
+        button.singIn-btn Busca otra pelicula
+    
+      button.singIn-btn.back Volver
+
+        
+    h1 PELICULAS Encontradas:
+    section.sectionPeliculas 
+    each valor in detallePeliculas
+      div.divpeliculas(id= valor.id)
+        h3=valor.fullTitle
+        p Año: #{valor.year}
+        p Directores: #{valor.directors}
+        p Géneros: #{valor.genres}
+        p Duración: #{valor.runtimeStr}
+        div.divDetalles
+          p Trama: #{valor.plot}
+          p Actores: #{valor.stars}
+          p Rating IMDB: #{valor.imDbRating}
+          button.singIn-btn.favorites Favoritos
+          //- a(href='/opiniones')
+          button.singIn-btn.btnOpiniones(value=valor.fullTitle) Opiniones
+
+        img.tilt-in-top-1(src=valor.image)
+
+        br
+        button#butonPelicula.singIn-btn( value= valor.id) Ir a pelicula
+
+
+
+  script(src="/detallePeliculas.js" type= 'module') 
