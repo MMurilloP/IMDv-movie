@@ -1,10 +1,13 @@
 const puppeteer = require('puppeteer')
 
+// const postOpiniones = async (req,res) => {
+//   res.render('/opiniones');
+// };
 
 const sensacineOpiniones = async (req, res) => {
-    const pelicula = "avatar 2";
+    const pelicula = req.params.title;
     async function waitFor3Seconds() {
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
     }
     const browser = await puppeteer.launch({headless: true})
     const page = await browser.newPage()
@@ -21,6 +24,9 @@ const sensacineOpiniones = async (req, res) => {
     //click en la primera pelicula
     await page.click('#content-layout > div.section-wrap.gd-2-cols.gd-gap-30.row-col-sticky > div > section.section.movies-results > ul > li:nth-child(1) > div > div.meta > h2 > a')
     // seleccion critica de usuarios
+    async function waitFor3Seconds() {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    }
     await waitFor3Seconds()
     let selector = "#content-layout > nav > a:nth-child(5)"
     if (pelicula == "Avatar 2" || "avatar 2" || "Avatar: el sentido del agua" || "Babylon" || "babylon" || "El Gato con Botas: El último deseo"  || "el gato con botas: el último deseo" ) {
@@ -35,7 +41,7 @@ const sensacineOpiniones = async (req, res) => {
       const userNames = document.querySelectorAll(' div.review-card-aside > div > div > div > a')
       const userOpinions = document.querySelectorAll(' div.review-card-review-holder > div.content-txt.review-card-content')
   
-      for (let i = 0; i < userNames.length; i++) {
+      for (let i = 0; i < 3; i++) {
         tmp.push({
           userName: userNames[i].innerText,
           userOpinion: userOpinions[i].innerText
@@ -47,11 +53,12 @@ const sensacineOpiniones = async (req, res) => {
     //cierro el navegador
     await browser.close()
   
-  res.render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
+  res.status(400).render('opiniones', { user: user, pelicula: pelicula.toUpperCase() })
   
   }
 
 
   module.exports = {
-    sensacineOpiniones
+    sensacineOpiniones,
+    // postOpiniones
   };

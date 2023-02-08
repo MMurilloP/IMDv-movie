@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 
 
 const getLogin = (req,res)=> {
-    res.render("login")
+    res.status(400).render("login")
   }
 
 const postLogin = async (req, res) => {
@@ -18,12 +18,11 @@ const postLogin = async (req, res) => {
     // Verificar la contraseña
     const isPasswordCorrect = await bcrypt.compare(password, user.rows[0].password);
     if (!isPasswordCorrect) {
-      return res.render("login" , {msj: "La contraseña es incorrecta"}) 
+      return res.status(400).render("login" , {msj: "La contraseña es incorrecta"}) 
     }
   
     const userForToken = {
       userLog : user,
-    
   }
 
   const token = jwt.sign(userForToken, process.env.CLAVE);
