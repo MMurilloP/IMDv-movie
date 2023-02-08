@@ -41,30 +41,57 @@ const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const opinonesroutes = require('./routes/opinionesRoutes');
 const searchPeliculasRoutes = require('./routes/searchPeliculasRoutes');
+const favoritesRoutes = require('./routes/favoritesMoviesRoutes');
 
-app.use ('/register', registerRoutes);
-app.use ('/login', loginRoutes);
-app.use('/opiniones',  opinonesroutes);
-app.get("/", (req,res)=> {
-  res.render("inicio")
+app.use('/register', registerRoutes);
+app.use('/login', loginRoutes);
+app.use('/opiniones', opinonesroutes);
+app.get("/", (req, res) => {
+    res.render("inicio")
 })
-app.get("/index", authorization.authorization_user, (req,res)=> {
-  res.render("index" )
+
+app.get("/index", authorization.authorization_user, (req, res) => {
+    res.render("index")
 })
 app.get("/logout", (req, res) => {
-  return res
-    .clearCookie("access_token")
-    .status(200)
-    .redirect('login');
+    return res
+        .clearCookie("access_token")
+        .status(200)
+        .redirect('login');
 });
-app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
-app.get("/admin/createMovie",authorization.authorization_admin, (req,res)=> {
+
+
+app.use('/admin', authorization.authorization_admin, movieAdminRoutes);
+
+
+app.get("/admin/createMovie", authorization.authorization_admin, (req, res) => {
     res.render("createMovie")
-})  
-app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
+})
+
+app.get("/admin/editMovie/:id", authorization.authorization_admin, (req, res) => {
     res.render("editMovie")
-}) 
-app.use('/search', searchPeliculasRoutes)
+})
+
+
+
+//?Favoritos
+app.use('/favoritesmovies', authorization.authorization_user, favoritesRoutes);
+
+
+//fetch
+//http://localhost:3000/search
+app.use('/search',authorization.authorization_user, searchPeliculasRoutes)
+
+
+app.get('/peliculaDetalladas', (req, res) => {
+    res.render('peliculasDetalladas', { pelicula: pelicula })
+})
+
+app.post('/peliculaDetalladas', (req, res) => {
+    res.render('peliculasDetalladas', { pelicula: pelicula })
+})
+
+
 
 
 //listener

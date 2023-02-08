@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const authorization_user = (req, res, next) => {
         const token = req.cookies.access_token;
         var decoded = jwt.decode(token, process.env.CLAVE, true)
-        if (!token) {
+        if (!token) { 
         return res.sendStatus(403);
         }
         try {
@@ -27,7 +27,6 @@ const authorization_user = (req, res, next) => {
 const authorization_admin = (req, res, next) => {
     const token = req.cookies.access_token;
     var decoded = jwt.decode(token, process.env.CLAVE, true)
-    //console.log(decoded.userLog.rows[0].id_usuario);
         if (!token) {
         return res.sendStatus(403);
         }
@@ -38,7 +37,7 @@ const authorization_admin = (req, res, next) => {
         if(user.rows[0].role !== 'admin'){
             res.status(401);
         }
-            req.decoded = decoded;
+        req.decoded = decoded;
             return next();
         } catch {
             return res.sendStatus(403);
