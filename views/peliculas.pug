@@ -8,22 +8,27 @@ html
     main
       a(href='/search')
         button.singIn-btn Busca otra pelicula
+    
+      button.singIn-btn.back Volver
+
         
-    h1 PELICULAS Encontradas
+    h1 PELICULAS Encontradas:
+    section.sectionPeliculas 
     each valor in detallePeliculas
       div.divpeliculas(id= valor.id)
-        h4=valor.fullTitle
-        p= valor.year
-        p= valor.directors
-        p= valor.genres
-        p= valor.runtimeStr
+        h3=valor.fullTitle
+        p Año: #{valor.year}
+        p Directores: #{valor.directors}
+        p Géneros: #{valor.genres}
+        p Duración: #{valor.runtimeStr}
         div.divDetalles
-          p= valor.plot
-          p= valor.stars
-          p= valor.imDbRating
-          button.singIn-btn Añadir Favoritos
+          p Trama: #{valor.plot}
+          p Actores: #{valor.stars}
+          p Rating IMDB: #{valor.imDbRating}
+          button.singIn-btn.favorites Favoritos
+        img.tilt-in-top-1(src=valor.image)
+        br
         button#butonPelicula.singIn-btn( value= valor.id) Ir a pelicula
-        img(src=valor.image)
 
 
 
