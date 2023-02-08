@@ -103,12 +103,12 @@ app.get("/admin/editMovie/:id", authorization.authorization_admin, (req, res) =>
 
 
 //?Favoritos
-app.use('/favoritesmovies', favoritesRoutes);
+app.use('/favoritesmovies', authorization.authorization_user, favoritesRoutes);
 
 
 //fetch
 //http://localhost:3000/search
-app.use('/search', searchPeliculasRoutes)
+app.use('/search',authorization.authorization_user, searchPeliculasRoutes)
 
 
 app.get('/peliculaDetalladas', (req, res) => {

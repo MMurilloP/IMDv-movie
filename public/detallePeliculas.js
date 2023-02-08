@@ -72,7 +72,6 @@ const addFavorite = async (id) => {
     const url2 = 'http://localhost:3000/favoritesmovies/addfavorite'
     const response = await fetch(url2, options)
     const result = await response.json()
-    console.log(result)
         return result
     
 } catch (error) {

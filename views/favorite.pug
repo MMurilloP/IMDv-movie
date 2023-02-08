@@ -5,21 +5,17 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Favorites
-    include ./header.pug
+        link(rel="stylesheet", href="/stylesPeliculas.css")
     body
         main
             h3 Seccion favoritos
-            section 
-                each valor, i in detallePeliculas
-                    article 
-                        h1 Title: #{valor[i].title}
-                        img(src=valor[i].img)
-                        p Year: #{valor[i].year}
-                        p Director: #{valor[i].director}
-                        p Genre: #{valor[i].genre}
-                        p Runtime: #{valor[i].runtime}
-                        button Remove
-            section
-            
-
-            section
+            section.sectionPeliculas
+                each valor, i in detallePeliculasFavoritos
+                    div.divpeliculas(id= valor.id)
+                        h3=valor.fullTitle
+                        p Año: #{valor.year}
+                        p Directores: #{valor.directors}
+                        p Géneros: #{valor.genres}
+                        p Duración: #{valor.runtimeStr}
+                        img.tilt-in-top-1(src=valor.image)
+                    button Remove

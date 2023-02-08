@@ -32,7 +32,7 @@ const getPelicula = async (req, res)=> {
       return resp.json();
     }));
 
-    console.log(detallePeliculas);
+    // console.log(detallePeliculas);
 
 
     res.status(400).render("peliculas", { detallePeliculas });
