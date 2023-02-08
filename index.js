@@ -49,6 +49,8 @@ const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const opinonesroutes = require('./routes/opinionesRoutes');
 const searchPeliculasRoutes = require('./routes/searchPeliculasRoutes');
+const favoritesRoutes = require('./routes/favoritesMoviesRoutes');
+
 
 //RUTAS
 
@@ -101,7 +103,7 @@ app.get("/admin/editMovie/:id", authorization.authorization_admin, (req, res) =>
 
 
 //?Favoritos
-app.use('/favoritesmovies', authorization.authorization_admin);
+app.use('/favoritesmovies', favoritesRoutes);
 
 
 //fetch

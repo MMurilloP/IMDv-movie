@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll("button#butonPelicula");
 const divInfos = document.querySelectorAll(".divDetalles");
 
+
 // Agrega una variable para indicar si el botón debe mostrarse o no
 let showButton = true;
 
@@ -49,3 +50,49 @@ backButton.forEach(button => {
   });
 });
 
+const btnFavoritos = document.querySelectorAll(".favorites")
+btnFavoritos.forEach(button => {
+    button.addEventListener("click", async event => {
+        const clickedButtonId = event.target.value;
+        console.log(clickedButtonId);
+        const response = await addFavorite(clickedButtonId);
+    });
+});
+
+
+const addFavorite = async (id) => {
+  try {
+    const options = {
+        method: 'POST',
+        headers:{
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id})
+    }
+    const url2 = 'http://localhost:3000/favoritesmovies/addfavorite'
+    const response = await fetch(url2, options)
+    const result = await response.json()
+    console.log(result)
+        return result
+    
+} catch (error) {
+    alert(error)
+}
+
+}
+
+const deleteFavorite = async (product) => {
+  try {
+      const method = {
+          method: 'DELETE'
+      }
+      console.log("Este es el parametro product:", product)
+      const BASE_URL = 'http://localhost:3000/movies/deleteFavoritesMovie?title=' + product
+      const response = await fetch(BASE_URL, method)
+
+  } catch (error) {
+      alert(error)
+      console.log(error)
+  }
+
+}

@@ -1,13 +1,20 @@
 const favorites_queries = {
     getFavorites: `
-    SELECT title, img, director, year, genre, runtime
-    FROM favorites
-    WHERE id = $1;`,
+    SELECT nombre
+    FROM peliculas
+    INNER JOIN usuarios 
+    ON peliculas.id_usuario=usuarios.id_usuario
+    WHERE usuarios.email=$1`,
 
     addFavorites:`
-    INSERT INTO favorites
-    (id, title, year, director, genre, runtime, img)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    INSERT INTO peliculas
+    (nombre)
+    VALUES ($1)
+    `,
+
+    deleteFavorites:`
+    DELETE FROM peliculas
+    WHERE nombre=$1
     `
 }
 

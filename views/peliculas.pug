@@ -25,7 +25,7 @@ html
           p Trama: #{valor.plot}
           p Actores: #{valor.stars}
           p Rating IMDB: #{valor.imDbRating}
-          button.singIn-btn.favorites Favoritos
+          button.singIn-btn.favorites(value=valor.id) Favoritos
         img.tilt-in-top-1(src=valor.image)
         br
         button#butonPelicula.singIn-btn( value= valor.id) Ir a pelicula

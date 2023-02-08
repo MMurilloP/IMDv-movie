@@ -1,27 +1,42 @@
-const users = require('../models/users_sql')
+const models = require('../models/favoriteModels');
 
-const addFavorites = async (req, res) => {
-    let fav = req.body;
-    const response = await users.addFavorite(fav);
-    res.status(201).json({
-        msg: response
-    });
-};
 
-const getFavorites = async (req, res) => {
-    let userData = req.oidc.user
-    let userId = userData.sub
-    const padding = "        "
-    const padding2 ="    "
-    // console.log("Este es el console.log de userData:"+userData)
-    console.log("Este es el console.log de userId:"+userId)
-    const userMoviesApi = await users.getFavorites(userId+padding);
-    const userMoviesMongo = await users.getFavorites(userId+padding2);
-    res.status(200).render("moviesUser", { favMoviesApi: userMoviesApi, favMongoMovies: userMoviesMongo });
-};
+// const getFavorites = async (req, res) => {
+//     let favoritos;
+//     if (req.query.email) {
+//         favoritos = await models.getAllFavorites(req.query.email);
+//         if (favoritos.length <= 0) {
+//             res.status(400).json({msj: `No existen peliculas asociadas a este email`});
+//         }else{
+//             res.status(200).json(favoritos); // [] con las favoritos encontradas
+//         }
+//     }
+// }
 
+const createFavorite = async (req, res) => {
+    const {id} = req.body; // {title,content,email,category}
+    console.log(id);
+        try {
+            const response = await models.addFavorite(id);
+            console.log(response,id);
+            res.status(201).json({
+            "items_created": response,
+            // data: id
+        });
+        }   catch(err){
+                res.status(400).json({msj: err.message});
+            }
+        }
+
+//DELETE
+// const deleteFavorites = async (req,res)=> {
+// let entries;
+// entries = await models.deleteFavorite(req.query.nombre);
+// res.send('Pelicula borrada');
+// }
 
 module.exports = {
-    addFavorites,
-    getFavorites
+    // getFavorites,
+    createFavorite
+    // deleteFavorites
 }
