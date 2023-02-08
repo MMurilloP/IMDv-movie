@@ -5,6 +5,6 @@ const favoritesRouter = express.Router();
 
 favoritesRouter.post('/addfavorite', favoritesController.createFavorite)
 favoritesRouter.get('/', favoritesController.getFavorites)
-favoritesRouter.delete('/', favoritesController.deleteFavorites)
+favoritesRouter.delete('/removeFavorite', favoritesController.deleteFavorites)
 
 module.exports = favoritesRouter
