@@ -6,12 +6,13 @@ const helmet = require("helmet");
 // const bcrypt = require('bcrypt');
 const passport = require("passport");
 const session = require("express-session");
-require("./utils/auth_google");
 
-const cookieParser = require('cookie-parser')
+//require("./utils/auth_google");
+
 var cors = require('cors')
 require('dotenv').config()
-
+// Passport config
+require('./utils/auth_google')(passport)
 
 require('./utils/db_mongo');
 const movieAdminRoutes = require('./routes/moviesAdminRoutes');
@@ -25,13 +26,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Passport config
-require('./utils/auth_google')(passport)
 
+
+//session
 app.use(session({ secret: 'SECRET'}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+
+
+app.use(passport.initialize()) // init passport on every route call
+app.use(passport.session())    //allow passport to use "express-session"
 
 app.use(
   helmet.contentSecurityPolicy({
@@ -44,7 +47,7 @@ app.use(
 )
 app.use('*', cors());
 
-app.use(cookieParser());
+
 app.use(morgan('tiny'));
 
 
@@ -52,6 +55,8 @@ app.use(morgan('tiny'));
 app.use(express.static('public'));
 app.set("view engine", "pug");
 app.set("views", "./views");
+
+//app.use('auth', require('./routes/google_authRoutes'))
 
 //IMPORTO RUTAS 
 const usuariosRoutes = require('./routes/usuariosRoutes');
@@ -90,29 +95,16 @@ app.get("/", (req,res)=> {
 })
 
 //vista dashboard:
-app.get("/index", ensureAuth || authorization.authorization_user, (req,res)=> {
+
+
+app.get("/index",  authorization.authorization_user, (req,res)=> {
   res.render("index" )
 })
 
-// vista de logout
-/* app.get('/logout', (req, res) => {
-  req.logout(function(err) {
-      if (err) { return next(err); }
-      req.session.destroy();
-      res.clearCookie("access-token").send('Goodbye! <br><br> <a href="/auth/google">Authenticate again</a>');
-    });
+app.get("/index", ensureAuth , (req,res)=> {
+  res.render("index" )
+})
 
-}); */
-
-
-
-app.get("/logout", (req, res) => {
-  req.session.destroy();
-  return res
-    .clearCookie("access_token")
-    .status(200)
-    .redirect('login');
-});
 
 app.use('/admin',authorization.authorization_admin, movieAdminRoutes);
 
@@ -128,4 +120,3 @@ app.get("/admin/editMovie/:id",authorization.authorization_admin, (req,res)=> {
 
 //listener
 app.listen(port, () => console.log(`Serving on ${port} http://localhost:3000`));
-
