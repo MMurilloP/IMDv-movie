@@ -8,21 +8,52 @@ IMDv-movie fue desarrollado por Manuel, Ana, Jorge.
 
 ## Rutas
 
-1º- inicio de la app:
+1º Inicio de la app:
     http://localhost:3000/
+Vista Bienvenida:
+![Bienvenida.png](/public/assets/Bienvenida.png)
 
-2º - Desde ahi, puedes logearte si ya eres usuario
-http://localhost:3000/login
-o 
-registrarte --- Por favor, registrate como usuario =)
-Recuerda, apuntarte si te registras, luego tendras que logearte
-http://localhost:3000/register
+Desde esta pagina puedes Logearte, si ya eres usuario o registrarte. 
 
-3º - 
+Vista de Login:
+![Login.png](/public/assets/Login.png)
+
+Vista de Registro:
+![Register.png](/public/assets/Register.png)
+
+Si te registras, al darle al botón iras a la pantalla de login donde tendras que logearte.
+
+Resgistrate como Usuario porfavor.
+
+
+
+3º 
 Si te logeas con ADMIN:
-    - En tu vista podras, crear peliculas, editar peliculas, borrar peliculas desde la base de datos.
+    - En tu vista podras, crear peliculas, editar peliculas, borrar peliculas que esten en la base de datos (MONGODB).
 
 Si te logeas como USER:
+Iras a la vista Index, donde apareceran 3 botones,
+Vista Dasboard Usuario:
+![Register.png](/public/assets/Dashboard_User.png)
+    - Mis peliculas favoritas: En desarrollo...
+    - Buscador de peliculas: 
+        al pulsar, iras a una vista donde aparece un input que podras rellenar con la pelicula que quieres buscar.
+
+Vista Buscador:
+![Dashboard](/public/assets/Buscador_Peliculas2.png)
+    - Logout: que te devuelve al inicio.
+
+
+Esperemos que la disfruteis!
+
+Un saludo
+
+En proceso de desarrollo:
+    - Login con Google, Facebook,...
+    - Guardar mis peliculas favoritas segun el usuario logeado
+    - Mensaje de bienvenida al usuario logeado
+    - Testing
+    - Despliegue en Vercel
 
 
 ## Descripción
@@ -38,7 +69,7 @@ Si te logeas como USER:
 | [Dinos tus sugerencias](#) | Cualquier mejora o accion que te gustaría que se te ocurra haznosla llegar y valoraremos su implementacion. |
 
 ## Archivo principal
-index.js
+app.js
 
 ## Instalación
 
