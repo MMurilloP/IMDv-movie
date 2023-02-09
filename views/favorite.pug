@@ -8,6 +8,8 @@ html(lang="en")
         link(rel="stylesheet", href="/stylesPeliculas.css")
     body
         main
+            a(href='/index')
+                button.singIn-btn Inicio
             h3 Seccion favoritos
             section.sectionPeliculas
                 each valor, i in detallePeliculasFavoritos
@@ -18,7 +20,7 @@ html(lang="en")
                         p Géneros: #{valor.genres}
                         p Duración: #{valor.runtimeStr}
                         img.tilt-in-top-1(src=valor.image)
-                    button.btn(value= valor.id) Remove
+                        button.singIn-btn.btn(value= valor.id) Remove
         script(src="/delete_fav.js" type='module') 
 
     

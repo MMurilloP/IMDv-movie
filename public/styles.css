@@ -20,6 +20,8 @@ body {
   background-position: center;
   font-family: "roboto", sans-serif;
 }
+
+
 /* body para admin */
 .admin{
   display: block;
@@ -707,6 +709,14 @@ h5 {
   color: white;
   text-align: center;
   margin: 40px;
+}
+
+.singIn-form{
+  width: 100%;
+}
+
+.singIn-enviar{
+  width: 40%;
 }
 
 
