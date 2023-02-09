@@ -27,6 +27,7 @@ h1 {
 
 .sectionPeliculas {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
