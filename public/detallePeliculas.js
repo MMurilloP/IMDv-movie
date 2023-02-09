@@ -19,8 +19,7 @@ buttons.forEach(button => {
     divInfos.forEach(divInfo => {
       divInfo.style.display = "flex";
       divInfo.style.flexDirection = "column";
-      divInfo.style.alignItems = "center";
-      divInfo.style.alignItems = "center";
+      divInfo.style.alignItems = "left";
       button.style.display = "none";
       // actualiza la variable para indicar que el botón está oculto
       showButton = false;

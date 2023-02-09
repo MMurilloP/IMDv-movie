@@ -3,16 +3,14 @@ html
   head
     title Register
     link(rel="stylesheet", href="styles.css")
-    body 
-        main
-        a(href='/index')
-             button.singIn-btn Inicio
-        
-        h1 BUSCAR PELICULAS
-        form(id="form" action ="/search" method="post")
-            label(for="title")
-            input(type="text" id="title" name="inputBuscar" placeholder="Search Movie" required)
-            input(type="submit", value="Buscar").btn
-        
+    body
+        include header.pug 
+        main.search
+          h1.tituloSearch BUSCAR PELICULAS
+          form(id="form" action ="/search" method="post")
+              label(for="title")
+              input(type="text" id="title" name="inputBuscar" placeholder="Search Movie" required)
+              input(type="submit", value="Buscar").btn
+          
         //- script(src="./js/searchMovie.js") 
   

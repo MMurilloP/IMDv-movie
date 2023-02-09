@@ -13,21 +13,21 @@ body {
   width: 100%;
   min-height: 100vh;
   height: auto;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-position: center;
-  font-family: "roboto", sans-serif;
+  /* font-family: "roboto", sans-serif; */
 }
 /* body para admin */
 .admin{
   display: block;
 }
 
-
 h1 {
   color: white;
+  margin: 30px;
 }
 
 h4 {
@@ -48,7 +48,6 @@ a {
   text-decoration: none;
   padding: 2px 1px 0;
 }
-
 
 li {
   color: white;
@@ -359,7 +358,6 @@ span {
   }
 }
 
-
 .singIn-btn, .btn{
     min-width: 130px;
     height: 40px;
@@ -378,6 +376,7 @@ span {
 
   .btn{
     min-width: auto;
+    margin: 9px;
   }
 
   .btn:hover{
@@ -386,7 +385,6 @@ span {
   }
 
   
-
   .singIn-btn:hover {
     background: #fff;
     color: #d90429;
@@ -710,6 +708,9 @@ h5 {
 }
 
 
+
+
+
 @media screen and (min-width: 768px) {
   .movies_container{
     flex-direction: row;
@@ -725,3 +726,4 @@ h5 {
   }
    
 }
+
