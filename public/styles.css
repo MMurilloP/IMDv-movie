@@ -700,3 +700,9 @@ img {
 .nav-link:hover {
   background-color: #eee;
 }
+
+h5 {
+  color: white;
+  text-align: center;
+  margin: 40px;
+}

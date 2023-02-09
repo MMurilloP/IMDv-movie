@@ -50,6 +50,7 @@ backButton.forEach(button => {
   });
 });
 
+
 const btnFavoritos = document.querySelectorAll(".favorites")
 btnFavoritos.forEach(button => {
     button.addEventListener("click", async event => {
@@ -95,3 +96,18 @@ const deleteFavorite = async (product) => {
   }
 
 }
+
+
+
+
+const btnOpiniones = document.querySelectorAll(".btnOpiniones")
+
+btnOpiniones.forEach(button => {
+  button.addEventListener("click", event => {
+    const clickedButtonId = event.target.value;
+    console.log(clickedButtonId);
+    window.open(`http://localhost:3000/opiniones/${clickedButtonId}`)
+    
+    });
+  });
+
