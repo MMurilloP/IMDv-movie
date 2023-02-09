@@ -20,6 +20,8 @@ body {
   background-position: center;
   font-family: "roboto", sans-serif;
 }
+
+
 /* body para admin */
 .admin{
   display: block;
@@ -632,7 +634,7 @@ input{
 .movie_cont{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .btn_delete{
@@ -654,7 +656,9 @@ img {
   width: 40px;
   height: 70px;
 }
-
+.adminImg{
+  height: auto;
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -705,4 +709,29 @@ h5 {
   color: white;
   text-align: center;
   margin: 40px;
+}
+
+.singIn-form{
+  width: 100%;
+}
+
+.singIn-enviar{
+  width: 40%;
+}
+
+
+@media screen and (min-width: 768px) {
+  .movies_container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 50px;
+  }
+  .movie_cont{
+    width: 40%;
+  }
+
+  .form-container{
+    align-items: center;
+  }
+   
 }

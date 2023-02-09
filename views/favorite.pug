@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Favorites
+        link(rel="stylesheet", href="/stylesPeliculas.css")
+    body
+        main
+            a(href='/index')
+                button.singIn-btn Inicio
+            h3 Seccion favoritos
+            section.sectionPeliculas
+                each valor, i in detallePeliculasFavoritos
+                    div.divpeliculas(id= valor.id)
+                        h3=valor.fullTitle
+                        p Año: #{valor.year}
+                        p Directores: #{valor.directors}
+                        p Géneros: #{valor.genres}
+                        p Duración: #{valor.runtimeStr}
+                        img.tilt-in-top-1(src=valor.image)
+                        button.singIn-btn.btn(value= valor.id) Remove
+        script(src="/delete_fav.js" type='module') 
+
+    
