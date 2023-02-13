@@ -57,8 +57,9 @@ const sensacineOpiniones = async (req, res) => {
   
   }
 
-
   module.exports = {
     sensacineOpiniones,
     // postOpiniones
   };
+
+  

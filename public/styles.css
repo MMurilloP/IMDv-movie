@@ -1,10 +1,11 @@
 * {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; 
 }
 
 body {
   margin: 30px;
+  font-size: 18px;
   background-image: url("https://images.pexels.com/photos/11961850/pexels-photo-11961850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-size: cover;
   background-repeat: repeat;
@@ -18,7 +19,6 @@ body {
   align-items: center;
   background-size: cover;
   background-position: center;
-  font-family: "roboto", sans-serif;
 }
 
 
@@ -30,6 +30,7 @@ body {
 
 h1 {
   color: white;
+  font-size: 5vh;
 }
 
 h4 {
@@ -361,7 +362,6 @@ span {
   }
 }
 
-
 .singIn-btn, .btn{
     min-width: 130px;
     height: 40px;
@@ -380,6 +380,8 @@ span {
 
   .btn{
     min-width: auto;
+    height: auto;
+    font-size: 2vh;
   }
 
   .btn:hover{
@@ -388,8 +390,7 @@ span {
   }
 
   
-
-  .singIn-btn:hover {
+.singIn-btn:hover {
     background: #fff;
     color: #d90429;
     }
@@ -426,9 +427,10 @@ span {
 }
 
 .singIn-btn {
-  min-width: 130px;
+  font-size: 2vh;
+  width: auto;
   margin: 20px;
-  height: 40px;
+  height: 5vh;
   color: #fff;
   padding: 5px 10px;
   font-weight: bold;
@@ -484,7 +486,6 @@ input{
 
 .singIn-enviar {
   margin: 20px;
-  min-width: 130px;
   height: 40px;
   color: #fff;
   padding: 5px 10px;
@@ -504,49 +505,7 @@ input{
   color: #d90429;
 }
 
-.singIn-google {
-  min-width: 130px;
-  height: 40px;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  border: 2px solid #ff7119;
-  background: #ff7119;
-}
-.singIn-google:hover {
-  background: #fff;
-  color: #ff7119;
-}
-
-.singIn-facebook {
-  min-width: 130px;
-  height: 40px;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  border: 2px solid #4433ff;
-  background: #4433ff;
-}
-.singIn-facebook:hover {
-  background: #fff;
-  color: #4433ff;
-}
-
 /* popup eliminar */
-
-
 *,
 *:before,
 *:after{

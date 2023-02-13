@@ -7,9 +7,8 @@ html(lang="en")
         title Favorites
         link(rel="stylesheet", href="/stylesPeliculas.css")
     body
+        include header.pug 
         main
-            a(href='/index')
-                button.singIn-btn Inicio
             h3 Seccion favoritos
             section.sectionPeliculas
                 each valor, i in detallePeliculasFavoritos

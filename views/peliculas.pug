@@ -4,14 +4,11 @@ html
   head
     title PELICULAS Encontradas
     link(rel="stylesheet", href="stylesPeliculas.css")
-  body 
+  body
+    include header.pug 
     main
-      a(href='/search')
-        button.singIn-btn Busca otra pelicula
-    
       button.singIn-btn.back Volver
 
-        
     h1 PELICULAS Encontradas:
     section.sectionPeliculas 
     each valor in detallePeliculas

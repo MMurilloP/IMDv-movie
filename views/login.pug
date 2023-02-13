@@ -19,11 +19,11 @@ html
             h4 Login:
             p #{msj}
             section.form-container
-                form.singIn-form(action="/login" method="POST")
+                form.form(action="/login" method="POST")
                     input(type="text",name ="email", placeholder="Tú Email" required)
                     br
                     input(type="password" name="password", placeholder="Contraseña" required)
                     br
-                    input(type="submit", value="Enviar").singIn-enviar
+                    input(type="submit", value="Enviar").singIn-btn
                     br
             

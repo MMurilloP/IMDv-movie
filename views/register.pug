@@ -16,7 +16,7 @@ html
             p #{msj}
             h4 Registro:
             section.form-container
-                form.singIn-form(action="/register" method ="POST")
+                form.form(action="/register" method ="POST")
                     input(type="text",name ="username", placeholder="Tú Nombre de usuario" required).singIn-name-input
                     br
                     input(type="text",name ="email", placeholder="Tú Email" required).singIn-name-input
@@ -26,6 +26,6 @@ html
                     select(name="role").singIn-pass-input
                         option(value="admin") Admin
                         option(value="user") User
-                    input(type="submit", value="Registrar" required).singIn-enviar
+                    input(type="submit", value="Registrar" required).singIn-btn
                     br
             
