@@ -5,27 +5,26 @@ html
     link(rel="stylesheet", href="styles.css")
     body
         main
-            a(
-                href='/login'
-                )
+            a(href='/login')
                 button.singIn-btn Login
-            br
-            
             
             h1.title IMDV movies
+            
+            h2 Registro:
             p #{msj}
-            h4 Registro:
-            section.form-container
-                form.form(action="/register" method ="POST")
-                    input(type="text",name ="username", placeholder="Tú Nombre de usuario" required).singIn-name-input
-                    br
-                    input(type="text",name ="email", placeholder="Tú Email" required).singIn-name-input
-                    br
-                    input(type="password" name="password", placeholder="Contraseña" required).singIn-pass-input
-                    br
-                    select(name="role").singIn-pass-input
+
+            section.formLogin-container
+                form.formLogin(action="/register" method ="POST")
+                    label(for="username")
+                    input(type="text",name ="username", placeholder="Tú Nombre de usuario" required)
+                    label(for="email")                    
+                    input(type="text",name ="email", placeholder="Tú Email" required)
+                    label(for="password")
+                    input(type="password" name="password", placeholder="Contraseña" required)
+                    label(for="role")
+                    select(name="role")
                         option(value="admin") Admin
                         option(value="user") User
                     input(type="submit", value="Registrar" required).singIn-btn
-                    br
+        
             

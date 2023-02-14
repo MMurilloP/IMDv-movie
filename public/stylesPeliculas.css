@@ -10,6 +10,21 @@ h1 {
   text-align: center;
 }
 
+.btn-header {
+  font-size: 1.5vh;
+  width: auto;
+  margin: 5px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  border-radius: 15px;
+  border: 2px solid #d90429;
+  background: #d90429;
+}
+
 .divDetalles{
   display: none;
 }

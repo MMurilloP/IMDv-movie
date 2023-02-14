@@ -6,10 +6,13 @@ html
     body
         include header.pug 
         main
-          h1 BUSCAR PELICULAS
-          form(id="form" action ="/search" method="post").form
-            label(for="title")
-            input(type="text" id="title" name="inputBuscar" placeholder="Search Movie" required)
-            input(type="submit", value="Buscar").btn
-        
+          section.index-container
+          h1.title BUSCAR PELICULAS
+
+          section.formLogin-container
+            form.formLogin(id="form" action ="/search" method="post")
+              label(for="title")
+              input(type="text" id="title" name="inputBuscar" placeholder="Search Movie" required)
+              input(type="submit", value="Buscar").btn
+          
   
