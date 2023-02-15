@@ -1,20 +1,18 @@
 const puppeteer = require('puppeteer')
 
-// const postOpiniones = async (req,res) => {
-//   res.render('/opiniones');
-// };
-
 const sensacineOpiniones = async (req, res) => {
     const pelicula = req.params.title;
     async function waitFor3Seconds() {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
-    const browser = await puppeteer.launch({headless: true})
+    const browser = await puppeteer.launch({headless: false})
     const page = await browser.newPage()
     //abro la pagina
     await page.goto('https://www.sensacine.com/peliculas/')
     //cambio el tamaño de la pagina
     await page.setViewport({width: 1040, height: 760})
+    await page.waitForSelector('#didomi-notice-agree-button')
+    await page.click('#didomi-notice-agree-button')
     //selecciono el imput y escribo el nombre de la pelicula
     await page.type('.container-input-autocomplete input', `${pelicula}`)
     // le doy click al boton de la lupa
@@ -25,7 +23,7 @@ const sensacineOpiniones = async (req, res) => {
     await page.click('#content-layout > div.section-wrap.gd-2-cols.gd-gap-30.row-col-sticky > div > section.section.movies-results > ul > li:nth-child(1) > div > div.meta > h2 > a')
     // seleccion critica de usuarios
     async function waitFor3Seconds() {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
     await waitFor3Seconds()
     let selector = "#content-layout > nav > a:nth-child(5)"
@@ -59,7 +57,6 @@ const sensacineOpiniones = async (req, res) => {
 
   module.exports = {
     sensacineOpiniones,
-    // postOpiniones
   };
 
   

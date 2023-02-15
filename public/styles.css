@@ -46,7 +46,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 
 form label {
@@ -55,7 +55,7 @@ form label {
 
 form input {
   width: 90%;
-  font-size: 50px;
+  font-size: 40px;
   margin: 1rem 0;
   border: none;
   border-radius: 10px;
@@ -97,49 +97,15 @@ select[name="role"] {
   flex-direction: column;
 }
 
-
-
-/* @media screen and (min-width: 768px) {
-  form.form {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  form label {
-    display: block;
-    width: 30%;
-    text-align: right;
-    padding-right: 1rem;
-  }
-
-  form input {
-    width: 70%;
-  }
-
-  form input[type="submit"] {
-    width: 100%;
-  }
-} */
-
-
 /* body para admin */
 .admin{
   display: block;
 }
 
-
-/* h1 {
-  color: white;
-  font-size: 5vh;
-} */
-
 h4 {
   color: white;
 }
 
-h5 {
-  color: white;
-}
 
 p {
   color:#d90429;
@@ -152,7 +118,6 @@ a {
   padding: 2px 1px 0;
 }
 
-
 li {
   color: white;
 }
@@ -160,8 +125,6 @@ li {
 ul {
   color: white;
 }
-
-
 
 /* span botones editar y elimnar */
 span {
@@ -173,7 +136,7 @@ span {
 .title {
   -webkit-animation: title 4s linear both;
   margin: 20px;
-  margin-top: 400px;
+  margin-top: 100px;
   animation: title 4s linear both;
   color: white;
   font-size: 7rem;
@@ -533,26 +496,26 @@ span {
   flex-direction: column;
 }
 
-.singIn-name-input {
+/* .singIn-name-input {
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
   width: 80%;
-}
+} */
 
-.singIn-pass-input {
+/* .singIn-pass-input {
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
   width: 80%;
-}
+} */
 
-input{
+/* input{
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
   width: 80%;
-}
+} */
 
 .singIn-enviar {
   margin: 20px;
