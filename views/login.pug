@@ -5,25 +5,24 @@ html
     link(rel="stylesheet", href="styles.css")
     body 
         main
-            a(
-                href='/register' 
-                )
+            a(href='/register')
                 button.singIn-btn Resgistro
-            br
-            br
+            
             if userLogged
                 p Se ha registrado: #{userLogged}
             else
                 p 
+
             h1.title IMDV movies            
-            h4 Login:
+            h2 Login:
             p #{msj}
-            section.form-container
-                form.singIn-form(action="/login" method="POST")
-                    input(type="text",name ="email", placeholder="Tú Email" required)
-                    br
-                    input(type="password" name="password", placeholder="Contraseña" required)
-                    br
-                    input(type="submit", value="Enviar").singIn-enviar
-                    br
+            
+            section.formLogin-container
+                form.formLogin(action="/login" method="POST")
+                    label(for="email")
+                    input(type="email", name="email", placeholder="Tú Email", required)
+                    label(for="password") 
+                    input(type="password", name="password", placeholder="Contraseña", required)
+                    input(type="submit", value="Enviar").singIn-btn
+
             
