@@ -14,7 +14,7 @@ html(lang="en")
             section.form-container 
                 form.form(action="/admin/editMovie/" + movie.id)
                     label(for="e_id") ID:
-                    input(type="text" id="edit_id" name="e_id" placeholder="ID:" value=id disabled)
+                    input(type="text" id="edit_id" name="e_id" placeholder="ID:" value=id hidden)
                     label(for="e_title") Título:
                     input(type="text" id="edit_title" name="e_title" placeholder="Título:" value=movie.fullTitle required)
                     label(for="e_dir") Director:

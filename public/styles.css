@@ -144,6 +144,12 @@ span {
   margin-bottom: 6rem;
 }
 
+.title_admin {
+  font-size: 4rem;
+}
+
+
+
 @-webkit-keyframes title {
   0% {
     opacity: 0;

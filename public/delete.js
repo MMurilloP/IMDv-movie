@@ -1,10 +1,11 @@
 
 const btn_del = document.querySelectorAll(".btn_delete");
 
-btn_del.forEach(btn => btn.addEventListener("click", ()=>{
-
-    const popup = document.querySelectorAll(".popup");
-    popup.forEach(pop => pop.style.display = "flex");
+btn_del.forEach(btn => btn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    console.log(e);
+    const popup = document.getElementById(`${e.target.name}`);
+    popup.style.display = "flex"
     
     
 })
@@ -12,7 +13,7 @@ btn_del.forEach(btn => btn.addEventListener("click", ()=>{
 const btn_pop_del =document.querySelectorAll('.confirm_del');
 btn_pop_del.forEach(btn=> btn.addEventListener("click", async (e)=> {
     e.preventDefault();
-    console.log(e);
+    //console.log(e);
     const data = {data: e.target.name}
     console.log(e.target.name);
     const response = await deleteMovie(data);
