@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Register
+    link(rel="stylesheet", href="styles.css")
+    body
+        include header.pug 
+        main
+          section.index-container
+          h1.title BUSCAR PELICULAS
+
+          section.formLogin-container
+            form.formLogin(id="form" action ="/search" method="post")
+              label(for="title")
+              input(type="text" id="title" name="inputBuscar" placeholder="Search Movie" required)
+              input(type="submit", value="Buscar").btn
+          
+  

@@ -7,25 +7,26 @@ html(lang="en")
         link( rel="stylesheet", href="/styles.css")
         title Mis películas
     body.admin
-        header
+        header 
+            h5 Vista Admin
             a(href='/logout')
                 button.btn Logout
-            h1.title Mis películas
+            h1.title.title_admin Mis películas
         main
             a(href="/admin/createMovie") 
                 button.btn Crear nueva
             section.movies_container 
                 each movie in movies
                     section.movie_cont
-                        span.popup 
+                        span.popup(id=movie.id)
                             button.close 
                             h3 ¿Estas seguro que quieres eliminar esta película?
                             a.confirm_del(type="submit" name=movie.id) Eliminar
                         span 
                             a(href='/admin/editMovie/'+ movie.id ) 
                                 button.btn Editar
-                            button.btn.btn_delete Eliminar
-                        img(crossorigin="anonymous" src=movie.image, alt="", srcset="")
+                            button.btn.btn_delete(name=movie.id) Eliminar
+                        img.adminImg(crossorigin="anonymous" src=movie.image, alt="", srcset="")
                         h3 Título: #{movie.fullTitle}
                         p Director: #{movie.directors} 
                         p Año de lanzamiento: #{movie.year} 

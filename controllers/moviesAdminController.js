@@ -4,8 +4,10 @@ const uuid4 = uuid.v4();
 
 
 const getAllMovies = async (req,res) => {
+    const user = req.decoded.userLog.rows[0].id_usuario
+    console.log(user);
     let movies = await Movie.find({}, "-_id -__v")
-    console.log(movies);
+    //console.log(movies);
     //res.status(200).json(movies);
     res.render('moviesAdmin',{movies: movies})
     //return movies

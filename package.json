@@ -4,7 +4,7 @@
   "description": "App de peliculas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -31,6 +31,7 @@
     "mongodb": "^4.13.0",
     "mongoose": "^6.9.0",
     "morgan": "^1.10.0",
+    "node-fetch": "^2.6.9",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "pg": "^8.9.0",
@@ -41,6 +42,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "jest": "^29.4.2",
     "nodemon": "^2.0.20"
   }
 }
